@@ -10,7 +10,7 @@ isFree: true
 마우스를 클릭하거나 키보드를 조작할 때 상태는 변경됩니다. 
 
 
-#### 초깃값 설정
+#### 초깃값 설정(constructor)
 ```
 ...
 class 컴포넌트이름 extends Component {
@@ -27,4 +27,19 @@ render() {
 ...
 ```
 
-#### 상태 변경
+#### 상태 변경(setState)
+```
+...
+class 컴포넌트이름 extends Component {
+
+    // 초깃값 설정
+    constructor(props) {
+      ...
+    }
+
+    // 상태 변경
+    a
+
+render() {
+...
+```
