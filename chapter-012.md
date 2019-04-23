@@ -1,6 +1,6 @@
 ---
 title: State
-seoTitle: 상태(State) | React | ohoo
+seoTitle: 상태(State)와 이벤트 처리 | React | ohoo
 seoDescription: description for search engines
 isFree: true
 ---
@@ -9,7 +9,7 @@ isFree: true
 
 마우스를 클릭하거나 키보드를 조작할 때 상태는 변경됩니다. 
 
-
+## 상태
 #### 초깃값 설정(constructor)
 ```
 ...
@@ -43,3 +43,6 @@ class 컴포넌트이름 extends Component {
 render() {
 ...
 ```
+
+
+## 이벤트 처리(이벤트 핸들링)
