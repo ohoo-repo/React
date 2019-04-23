@@ -84,3 +84,31 @@ function App() {
 
 export default App;
 ```
+
+
+## propTypes
+props에는 다양한 데이터 타입이 사용될 수 있는데 애플리케이션의 규모가 커지면 이를 관리하기 어려우므로 만일 다른 타입의 데이터가 전달된다면 코드를 작성하거나 실행할 때 이를 알려주는 것이 바람직함
+
+```
+npm i prop-types
+```
+
+```
+Hello.propTypes = {
+  name: PropTypes.string
+}
+```
+
+```
+// 속성이름만 되는지 다른 것도 되는지는 점차 살펴보자
+컴포넌트이름.propTypes = {
+  속성이름: PropTypes.string,
+  속성이름: PropTypes.number,
+  속성이름: PropTypes.boolean,
+  속성이름: PropTypes.array,
+  속성이름: PropTypes.object,
+  속성이름: PropTypes.function,
+  속성이름: PropTypes.symbol,
+}
+```
+
