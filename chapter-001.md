@@ -15,3 +15,16 @@ isFree: true
 ## 가상 DOM
 ## JSX
 ## create-react-app
+
+```
+// create-react-app 설치
+npm install create-react-app
+```
+
+```
+npx create-react-app 디렉터리이름
+cd my-app
+npm start
+```
+
+App.js를 수정하고 command+S를 누르면 수정된 부분이 화면에 반영됨
