@@ -96,6 +96,28 @@ JSX는 언뜻 보면 HTML같이 생겼으며 HTML과 유사한 점도 많지만
 </script>
 ```
 
+## JSX 문법
+
+#### 태그 닫기
+태그를 반드시 닫아줌
+```
+// HTML
+<br>
+
+// JSX
+<br/>
+```
+
+## 속성
+```
+const a = <input type="text" value="입력값" />;
+
+const inputValue = '입력값';
+const a = <input type="text" value={inputValue} />;
+```
+
+#### class 속성과 for 속성
+HTML의 class 속성과 for 속성은 JSX에서 className과 htmlFor로 
 
 
 JSX는 자바스크립트의 변형된 형태이므로 JSX로 작성된 프로그램을 브라우저에서 렌더링하려면 JSX를 자바스크립트로 바꿔주는 트랜스파일러가 필요합니다. 
