@@ -6,6 +6,42 @@ isFree: true
 ---
 
 
+```
+// App.js(함수형)
+import React from "react";
+
+const App = () => {
+  return (
+    <div>
+      <p>Hello World!</p>
+      <p>Hello World!</p>
+    </div>
+  );
+};
+
+export default App;
+```
+
+```
+// App.js(class형)
+import React from "react";
+
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>Hello World!</p>
+        <p>Hello World!</p>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+
+
 ## props
 ```
 import React from "react";
