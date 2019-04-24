@@ -14,7 +14,7 @@ isFree: true
 
 * 프레임워크와 라이브러리
 
-## 가상 DOM
+
 
 ## 간단한 프로그램
 ```
@@ -40,42 +40,23 @@ isFree: true
 </html>
 ```
 
+## 가상 DOM
+```
+<div id="root"></div>
+```
+
+이것은 "root" DOM 노드이며 이 노드 안의 모든 것들은 React DOM에 의해 관리됩니다. 
+```
+ReactDOM.render(React 엘리먼트, document.getElementById('root'));
+```
+
+React 엘리먼트를 "root" DOM 노드에 렌더링하려면 React 엘리먼트와 "root" DOM 노드를 ReactDOM.render() 메서드에 전달합니다.
+
 ```
 ReactDOM.render(element, container[, callback])
 ```
 
-```
-// 리액트 엘리먼트 생성하기
-React.createElement(type, [props], [...children])
-```
-
-type은 문자열로 된 태그 이름, 리액트 컴포넌트(함수 또는 class), React.Fragment 컴포넌트가 될 수 있음.
-
-```
-// 중첩
-<script type="text/javascript">
-  ReactDOM.render(
-    React.createElement('div', null,
-      React.createElement('p', null, 'Hello world!')
-    ),
-    document.getElementById('root')
-  )
-</script>
-```
-
-```
-<script type="text/javascript">
-  ReactDOM.render(
-    React.createElement('div', null,
-      React.createElement('p', null, 'Hello world!'),
-      React.createElement('p', null, 'Hello world!'),
-      React.createElement('p', null, 'Hello world!')
-    ),
-    document.getElementById('root')
-  )
-</script>
-```
-
+'React DOM(가상 DOM)을 만들어서 렌더링한다'
 
 
 
