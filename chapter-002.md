@@ -5,7 +5,7 @@ seoDescription: description for search engines
 isFree: true
 ---
 
-엘리먼트
+React 엘리먼트는 리액트 앱을 구성하는 가장 작은 빌딩 블럭이며 이 엘리먼트들이 모여 컴포넌트를 구성합니다. 
 
 ```
 // 리액트 엘리먼트 생성하기
