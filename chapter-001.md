@@ -52,6 +52,8 @@ ReactDOM.render(React 엘리먼트, document.getElementById('root'));
 
 React 엘리먼트를 "root" DOM 노드에 렌더링하려면 React 엘리먼트와 "root" DOM 노드를 ReactDOM.render() 메서드에 전달합니다.
 
+React DOM은 React 엘리먼트와 일치하도록 DOM을 업데이트합니다.
+
 ```
 ReactDOM.render(element, container[, callback])
 ```
