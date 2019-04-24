@@ -6,6 +6,9 @@ isFree: true
 ---
 
 
+## 컴포넌트란?
+
+## 컴포넌트 
 ```
 // React 엘리먼트
 ReactDOM.render(
@@ -37,6 +40,10 @@ ReactDOM.render(
   document.getElementById('root') 
 )
 ```
+
+함수형 컴포넌트와 class형 컴포넌트의 차이점은 class형 컴포넌트에 상태(State)가 존재한다는 점입니다.
+
+
 
 
 ## 함수형 컴포넌트와 class형 컴포넌트
