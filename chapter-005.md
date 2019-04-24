@@ -6,6 +6,38 @@ isFree: true
 ---
 
 
+```
+// React 엘리먼트
+ReactDOM.render(
+  <p>Hello world!</p>, 
+  document.getElementById('root') 
+)
+
+ReactDOM.render(
+  <div>
+    <p>Hello world!</p>
+  </div>, 
+  document.getElementById('root') 
+)
+
+// React 컴포넌트
+class Helloworld extends React.Component{
+  render() {
+    return (
+      <div>
+        <p>Hello world!</p>
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(
+  <Helloworld/>, 
+  document.getElementById('root') 
+)
+```
+
+
 ## 함수형 컴포넌트와 class형 컴포넌트
 #### 함수형 컴포넌트
 ```
