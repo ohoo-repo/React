@@ -63,8 +63,8 @@ type은 문자열로 된 태그 이름, 리액트 컴포넌트(함수 또는 cla
 </script>
 ```
 
-```
-```
+리액트 엘리먼트를 생성할 때마다 React.createElement를 반복적으로 적어야 하는 불편함.
+JSX를 쓰자!
 
 ```
 <!DOCTYPE>
