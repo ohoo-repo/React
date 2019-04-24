@@ -13,26 +13,27 @@ ReactDOM.render(
   document.getElementById('root') 
 )
 
+// React 컴포넌트(함수형)
+const helloWorld = () => {
+  return <p>Hello world!</p>;
+}
+
 ReactDOM.render(
-  <div>
-    <p>Hello world!</p>
-  </div>, 
+  helloWorld(), 
   document.getElementById('root') 
 )
 
-// React 컴포넌트
-class Helloworld extends React.Component{
+// React 컴포넌트(class형)
+class HelloWorld extends React.Component{
   render() {
     return (
-      <div>
-        <p>Hello world!</p>
-      </div>
+      <p>Hello world!</p>
     )
   }
 }
 
 ReactDOM.render(
-  <Helloworld/>, 
+  <HelloWorld/>, 
   document.getElementById('root') 
 )
 ```
@@ -52,9 +53,9 @@ const Hello = props => {
 function App() {
   return (
     <div>
-      <Hello name="나이재" />
-      <Hello name="선민식" />
-      <Hello name="한소금" />
+      <Hello name="나제영" />
+      <Hello name="나제일" />
+      <Hello name="나제이" />
     </div>
   );
 }
