@@ -29,16 +29,19 @@ isFree: true
 </html>
 ```
 
-리액트와 리액트 DOM을 사용하려면 head의 script 태그로 자바스크립트 파일을 읽어 들이고 body의 script 태그에 리액트 프로그램을 작성하면 됩니다. 위의 코드에서는 ReactDOM.render()와 React.createElement()를 사용하여 "Hello world!"라는 문장을 출력하는 간단한 프로그램을 만들어 보았습니다.  
+리액트와 리액트 DOM을 사용하려면 head의 script 태그로 자바스크립트 파일을 읽어 들이고 body의 script 태그에 리액트 프로그램을 작성하면 됩니다. 위의 코드에서는 "Hello world!"라는 문장을 출력하는 간단한 프로그램을 만들어 보았습니다.  
 
-HTML과 자바스크립트 코드를 제외
-React.createElement()는 자바스크립트에서 DOM에 대해 배울 때 보았던 document.createElement()와 비슷하다고 생각하면 됩니다. 하지만 document.createElement()와 달리 React.createElement()는 가상의 DOM 트리를 생성합니다. 
+전체 코드에서 HTML과 자바스크립트 코드를 제외하고 나면 React.createElement()와 ReactDOM.render()이 남는데 React.createElement()는 가상의 DOM 트리를 **생성**하고 ReactDOM.render()는 생성된 DOM 트리를 **렌더링**하는 역할을 합니다.
 
-ReactDOM.render()는 
+
+
+
 
 ## 가상 DOM
-DOM이란 Document Object Model의 줄임말로 HTML, XML, SVG 같은 문서를 제어하는 API를 말합니다. DOM은 이 문서들을 DOM 트리 
-브라우저의 DOM과 다르게 리액트 DOM은 가상의 DOM(virtual DOM)입니다. 코드를 변경할 경우 DOM 트리를 바로 
+DOM이란 Document Object Model의 줄임말로 표현 그대로 문서를 객체로 취급하는 것을 말합니다. HTML과 CSS 코드의 각 구성 요소들을 자바스크립트로 직접 제어하는 것을 불가능하므로 이들을 분석해서 객체로 된 구조를 만드는데 이 작업은 브라우저 DOM에 의해 이뤄집니다. 브라우저 DOM은 HTML과 CSS 코드를 분석해서 객체로 구성된 계층 구조를 만듭니다. 그런데 이 구조가 트리(tree) 구조이므로 DOM 트리라고 부릅니다.
+
+
+브라우저의 DOM과 다르게 리액트 DOM은 가상의 DOM(virtual DOM)입니다. 코드를 변경할 경우 브라우저 DOM 트리가 바로 변경되는 것이 아니라 가상의 DOM을 변경시킨다음 이 가상의 DOM과 일치하도록 실제 DOM(브라우저 DOM)을 업데이트합니다.
 
 ```
 <div id="root"></div>
@@ -58,6 +61,9 @@ ReactDOM.render(element, container[, callback])
 ```
 
 'React DOM(가상 DOM)을 만들어서 렌더링한다'
+
+## 엘리먼트
+React.createElement()는 자바스크립트에서 DOM에 대해 배울 때 보았던 document.createElement()와 비슷하다고 생각하면 됩니다. 하지만 document.createElement()와 달리 React.createElement()는 가상의 DOM 트리를 생성합니다. 
 
 React 엘리먼트는 리액트 앱을 구성하는 가장 작은 빌딩 블럭이며 이 엘리먼트들이 모여 컴포넌트를 구성합니다. 
 
