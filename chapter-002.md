@@ -34,35 +34,21 @@ isFree: true
 전체 코드에서 HTML과 자바스크립트 코드를 제외하고 나면 React.createElement()와 ReactDOM.render()이 남는데 React.createElement()는 가상의 DOM 트리를 **생성**하고 ReactDOM.render()는 생성된 DOM 트리를 **렌더링**하는 역할을 합니다.
 
 
+## 가상의 DOM
+DOM이란 Document Object Model의 줄임말로 표현 그대로 문서를 객체로 취급하는 것을 말합니다. HTML과 CSS 코드의 각 구성 요소들을 자바스크립트로 직접 제어하는 것을 불가능하므로 이들을 분석해서 객체로 된 구조를 만드는데 이 작업은 브라우저 DOM에 의해 이뤄지며 작업의 결과로 생성된 것을 DOM 트리(tree)라고 부릅니다.
 
 
-
-## 가상 DOM
-DOM이란 Document Object Model의 줄임말로 표현 그대로 문서를 객체로 취급하는 것을 말합니다. HTML과 CSS 코드의 각 구성 요소들을 자바스크립트로 직접 제어하는 것을 불가능하므로 이들을 분석해서 객체로 된 구조를 만드는데 이 작업은 브라우저 DOM에 의해 이뤄집니다. 브라우저 DOM은 HTML과 CSS 코드를 분석해서 객체로 구성된 계층 구조를 만듭니다. 그런데 이 구조가 트리(tree) 구조이므로 DOM 트리라고 부릅니다.
-
-
-브라우저의 DOM과 다르게 리액트 DOM은 가상의 DOM(virtual DOM)입니다. 코드를 변경할 경우 브라우저 DOM 트리가 바로 변경되는 것이 아니라 가상의 DOM을 변경시킨다음 이 가상의 DOM과 일치하도록 실제 DOM(브라우저 DOM)을 업데이트합니다.
+브라우저 DOM과 다르게 리액트 DOM은 가상의 DOM(virtual DOM)입니다. 코드를 변경할 경우 브라우저 DOM 트리가 바로 변경되는 것이 아니라 가상의 DOM을 변경시킨다음 가상의 DOM과 일치하도록 실제 DOM(브라우저 DOM)을 업데이트합니다.
 
 ```
 <div id="root"></div>
 ```
 
 이것은 "root" DOM 노드이며 이 노드 안의 모든 것들은 React DOM에 의해 관리됩니다. 
-```
-ReactDOM.render(React 엘리먼트, document.getElementById('root'));
-```
 
-React 엘리먼트를 "root" DOM 노드에 렌더링하려면 React 엘리먼트와 "root" DOM 노드를 ReactDOM.render() 메서드에 전달합니다.
 
-React DOM은 React 엘리먼트와 일치하도록 DOM을 업데이트합니다.
+## DOM 트리 생성하기
 
-```
-ReactDOM.render(element, container[, callback])
-```
-
-'React DOM(가상 DOM)을 만들어서 렌더링한다'
-
-## 엘리먼트
 React.createElement()는 자바스크립트에서 DOM에 대해 배울 때 보았던 document.createElement()와 비슷하다고 생각하면 됩니다. 하지만 document.createElement()와 달리 React.createElement()는 가상의 DOM 트리를 생성합니다. 
 
 React 엘리먼트는 리액트 앱을 구성하는 가장 작은 빌딩 블럭이며 이 엘리먼트들이 모여 컴포넌트를 구성합니다. 
@@ -99,4 +85,22 @@ type은 문자열로 된 태그 이름, 리액트 컴포넌트(함수 또는 cla
 </script>
 ```
 
+
+
+
+#### DOM 트리 렌더링하기
+
+```
+ReactDOM.render(React 엘리먼트, document.getElementById('root'));
+```
+
+React 엘리먼트를 "root" DOM 노드에 렌더링하려면 React 엘리먼트와 "root" DOM 노드를 ReactDOM.render() 메서드에 전달합니다.
+
+React DOM은 React 엘리먼트와 일치하도록 DOM을 업데이트합니다.
+
+```
+ReactDOM.render(element, container[, callback])
+```
+
+'React DOM(가상 DOM)을 만들어서 렌더링한다'
 
