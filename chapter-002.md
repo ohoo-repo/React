@@ -48,14 +48,28 @@ DOM이란 Document Object Model의 줄임말로 표현 그대로 문서를 객�
 
 
 ## DOM 트리 생성하기
-
-React.createElement()는 자바스크립트에서 DOM에 대해 배울 때 보았던 document.createElement()와 비슷하다고 생각하면 됩니다. 하지만 document.createElement()와 달리 React.createElement()는 가상의 DOM 트리를 생성합니다. 
-
-React 엘리먼트는 리액트 앱을 구성하는 가장 작은 빌딩 블럭이며 이 엘리먼트들이 모여 컴포넌트를 구성합니다. 
-
 ```
 React.createElement(type, [props], [...children])
 ```
+
+리액트에서는 DOM 트리를 생성하기 위해 React.createElement()를 사용합니다. React.createElement()는 브라우저 DOM의 document.createElement()와 유사하지만 약간의 차이가 있습니다. 
+
+```
+// 브라우저 DOM
+document.createElement('엘리먼트 이름')
+document.createAttribute('속성 이름')
+document.createTextNode('텍스트')
+
+// 리액트 DOM
+React.createElement('엘리먼트 이름', { 속성 }, '텍스트')
+```
+
+비슷하다고 생각하면 됩니다. 하지만 document.createElement()와 달리 React.createElement()는 가상의 DOM 트리를 생성합니다. 
+
+React 엘리먼트는 리액트 앱을 구성하는 가장 작은 빌딩 블럭이며 이 엘리먼트들이 모여 컴포넌트를 구성합니다. 
+
+
+
 
 type은 문자열로 된 태그 이름, 리액트 컴포넌트(함수 또는 class), React.Fragment 컴포넌트가 될 수 있음.
 
