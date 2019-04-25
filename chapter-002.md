@@ -1,6 +1,6 @@
 ---
 title: 가상 DOM과 엘리먼트
-seoTitle: 엘리먼트 | ohoo
+seoTitle: 가상 DOM과 엘리먼트 | ohoo
 seoDescription: description for search engines
 isFree: true
 ---
@@ -54,7 +54,6 @@ React.createElement()는 자바스크립트에서 DOM에 대해 배울 때 보�
 React 엘리먼트는 리액트 앱을 구성하는 가장 작은 빌딩 블럭이며 이 엘리먼트들이 모여 컴포넌트를 구성합니다. 
 
 ```
-// 리액트 엘리먼트 생성하기
 React.createElement(type, [props], [...children])
 ```
 
