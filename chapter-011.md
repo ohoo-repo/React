@@ -41,56 +41,14 @@ class Hello extends React.Component {
 export default Hello;
 ```
 
-
-#### 함수형 컴포넌트
 ```
-// App.js
-
-import React from "react";
-
-const Hello = props => {
-  return <div>안녕하세요. {props.name}님</div>;
-};
-
-function App() {
-  return (
-    <div>
-      <Hello name="나제일" />
-      <Hello name="나제이" />
-      <Hello name="나제준" />
-    </div>
-  );
-}
-
-export default App;
+this.props.속성이름
 ```
 
-#### class형 컴포넌트    
-```
-// App.js
 
-import React from "react";
 
-const Hello = props => {
-  return <div>안녕하세요. {props.name}님</div>;
-};
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Hello name="나제일" />
-        <Hello name="나제이" />
-        <Hello name="나제준" />
-      </div>
-    );
-  }
-}
-
-export default App;
-```
-
-## props
+## props의 
 ```
 import React from "react";
 
