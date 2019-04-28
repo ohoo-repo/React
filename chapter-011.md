@@ -42,6 +42,17 @@ export default Hello;
 ```
 
 ```
+// Hello.js(함수형)
+import React from "react";
+
+function Hello(props) {
+  return <p>Hello {props.name}!</p>;
+}
+
+export default Hello;
+```
+
+```
 this.props.속성이름
 ```
 
