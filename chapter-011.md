@@ -6,32 +6,46 @@ isFree: true
 ---
 
 
+#### 함수형 컴포넌트
 ```
-// App.js(함수형)
+// App.js
+
 import React from "react";
 
-const App = () => {
+const Hello = props => {
+  return <div>안녕하세요. {props.name}님</div>;
+};
+
+function App() {
   return (
     <div>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
+      <Hello name="나제일" />
+      <Hello name="나제이" />
+      <Hello name="나제준" />
     </div>
   );
-};
+}
 
 export default App;
 ```
 
+#### class형 컴포넌트    
 ```
-// App.js(class형)
+// App.js
+
 import React from "react";
+
+const Hello = props => {
+  return <div>안녕하세요. {props.name}님</div>;
+};
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <p>Hello World!</p>
-        <p>Hello World!</p>
+        <Hello name="나제일" />
+        <Hello name="나제이" />
+        <Hello name="나제준" />
       </div>
     );
   }
@@ -39,8 +53,6 @@ class App extends React.Component {
 
 export default App;
 ```
-
-
 
 ## props
 ```
@@ -98,4 +110,3 @@ Hello.propTypes = {
   속성이름: PropTypes.symbol,
 }
 ```
-
