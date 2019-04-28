@@ -6,8 +6,8 @@ isFree: true
 ---
 
 
-## 컴포넌트란?
-컴포넌트(Component)란 UI를 독립적이고 재사용이 가능한 부분으로 나눈 것을 말합니다. 단순히 디자인적으로만 분할한 것이 아니고 컴포넌트마다 각자의 기능을 갖고 있음. 각각의 컴포넌트가 결합하여 하나의 유기적인 프로그램을 만듬  
+
+컴포넌트(Component)란 UI를 독립적이고 재사용이 가능한 부분으로 나눈 것을 말합니다. 단순히 디자인적으로만 분할한 것이 아니고 컴포넌트마다 각자의 기능을 갖고 있으며 각각의 컴포넌트가 결합하여 하나의 유기적인 프로그램을 만듭니다. 
 
 ## 컴포넌트 
 ```
@@ -61,9 +61,9 @@ const Hello = props => {
 function App() {
   return (
     <div>
-      <Hello name="나제영" />
       <Hello name="나제일" />
       <Hello name="나제이" />
+      <Hello name="나제준" />
     </div>
   );
 }
@@ -85,9 +85,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Hello name="나이재" />
-        <Hello name="선민식" />
-        <Hello name="한소금" />
+        <Hello name="나제일" />
+        <Hello name="나제이" />
+        <Hello name="나제준" />
       </div>
     );
   }
