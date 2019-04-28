@@ -12,6 +12,8 @@ isFree: true
 
 
 ## 함수형 컴포넌트와 class형 컴포넌트
+함수형 컴포넌트와 class형 컴포넌트 중 어느 것을 사용해도 결과는 동일함
+
 #### 함수형 컴포넌트
 ```
 // App.js
@@ -70,22 +72,20 @@ export default App;
 
 
 
-## 컴포넌트의 중첩?
+## 엘리먼트의 반복
 ```
 import React from "react";
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <p>Hello world!</p>
-        <p>Hello world!</p>
-        <p>Hello world!</p>
-        <p>Hello world!</p>
-        <p>Hello world!</p>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div>
+      <p>Hello world!</p>
+      <p>Hello world!</p>
+      <p>Hello world!</p>
+      <p>Hello world!</p>
+      <p>Hello world!</p>
+    </div>
+  );
 }
 
 export default App;
@@ -99,18 +99,16 @@ import React from "react";
 
 const hello = "Hello world!";
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <p>{hello}</p>
-        <p>{hello}</p>
-        <p>{hello}</p>
-        <p>{hello}</p>
-        <p>{hello}</p>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div>
+      <p>{hello}</p>
+      <p>{hello}</p>
+      <p>{hello}</p>
+      <p>{hello}</p>
+      <p>{hello}</p>
+    </div>
+  );
 }
 
 export default App;
@@ -118,22 +116,43 @@ export default App;
 
 #### 컴포넌트
 ```
+import React from "react";
+
+function Hello() {
+  return <p>Hello world!</p>;
+}
+
+function App() {
+  return (
+    <div>
+      <Hello />
+      <Hello />
+      <Hello />
+      <Hello />
+      <Hello />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## 컴포넌트 추출하기
+```
 // App.js
 import React from "react";
 import Hello from "./Hello.js";
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Hello/>
-        <Hello/>
-        <Hello/>
-        <Hello/>
-        <Hello/>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div>
+      <Hello />
+      <Hello />
+      <Hello />
+      <Hello />
+      <Hello />
+    </div>
+  );
 }
 
 export default App;
@@ -141,12 +160,8 @@ export default App;
 // Hello.js
 import React from "react";
 
-class Hello extends React.Component {
-  render() {
-    return (
-      <p>Hello world!</p>
-    );
-  }
+function Hello() {
+  return <p>Hello world!</p>;
 }
 
 export default Hello;
