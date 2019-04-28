@@ -6,6 +6,42 @@ isFree: true
 ---
 
 
+```
+// App.js
+import React from "react";
+import Hello from "./Hello.js";
+
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Hello name="나제이"/>
+        <Hello name="나제일"/>
+        <Hello name="나제준"/>
+        <Hello name="나제현"/>
+        <Hello name="나제환"/>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+// Hello.js
+import React from "react";
+
+class Hello extends React.Component {
+  render() {
+    return (
+      <p>Hello {this.props.name}!</p>
+    );
+  }
+}
+
+export default Hello;
+```
+
+
 #### 함수형 컴포넌트
 ```
 // App.js
