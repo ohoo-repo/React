@@ -154,6 +154,15 @@ export default Hello;
 
 ## UI 표현하기
 ```
+|-- App.js
+|  |-- Header.js
+|  |-- Main.js
+|  |  |-- 
+|  |  |-- 
+|  |-- Footer.js
+```
+
+```
 // App.js
 import React from "react";
 import Header from "./Header.js";
