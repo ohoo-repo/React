@@ -142,9 +142,112 @@ export default Todo;
 
 
 ```
+// 전체 삭제하기
+import React from "react";
 
+class Todo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: ["운동", "리액트 공부", "방 정리"]
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({
+      todo: e.target.value
+    });
+  }
+
+  handleClick() {
+    this.setState({
+      todos: this.state.todos.concat(this.state.todo),
+      todo: ""
+    });
+  }
+
+  handleRemove() {
+    this.setState({
+      todos: []
+    });
+  }
+
+  render() {
+    const todoList = this.state.todos.map((todo, index) => (
+      <li key={index}>{todo}</li>
+    ));
+
+    return (
+      <div>
+        <input value={this.state.todo} onChange={this.handleChange} />
+        <button onClick={this.handleClick}>추가하기</button>
+        <button onClick={this.handleRemove}>제거하기</button>
+        <ul>{todoList}</ul>
+      </div>
+    );
+  }
+}
+
+export default Todo;
 ```
 
+```
+// 하나씩 삭제하기
+import React from "react";
 
+class Todo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: ["운동", "리액트 공부", "방 정리"],
+      todo: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleDoubleClick = this.handleDoubleClick.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({
+      todo: e.target.value
+    });
+  }
+
+  handleClick() {
+    this.setState({
+      todos: this.state.todos.concat(this.state.todo),
+      todo: ""
+    });
+  }
+
+  handleDoubleClick(index) {
+    const { todos } = this.state;
+    this.setState({
+      todos: [...todos.slice(0, index), ...todos.slice(index + 1, todos.length)]
+    });
+  }
+
+  render() {
+    const todoList = this.state.todos.map((todo, index) => (
+      <li key={index} onDoubleClick={() => this.handleDoubleClick(index)}>
+        {todo}
+      </li>
+    ));
+
+    return (
+      <div>
+        <input value={this.state.todo} onChange={this.handleChange} />
+        <button onClick={this.handleClick}>추가하기</button>
+        <ul>{todoList}</ul>
+      </div>
+    );
+  }
+}
+
+export default Todo;
+```
 
 
