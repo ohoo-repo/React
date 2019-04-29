@@ -1,9 +1,10 @@
 ---
-title: 간단한 예제: 현재 시간 나타내기
-seoTitle: 간단한 예제: 현재 시간 나타내기 | React | ohoo
+title: 간단한 예제:현재 시간 나타내기
+seoTitle: 간단한 예제:현재 시간 나타내기 | React | ohoo
 seoDescription: description for search engines
 isFree: true
 ---
+
 
 ```
 import React from "react";
