@@ -5,14 +5,23 @@ seoDescription: description for search engines
 isFree: true
 ---
 
+
+라이프사이클 메서드는 크게 마운팅, 업데이팅, 언마운팅으로 분류됩니다. 
+마운트란 새로운 리액트 컴포넌트를 DOM에 추가하는 것
+언마운트란 리액트 컴포넌트가 DOM에서 제거되는 것
+업데이트란 컴포넌트의 속성(Props) 또는 상태(State)가 변경되는 것
+
+
+
+초기의 마운트와 그 이후의 업데이트
+
 * 라이프사이클 메서드 : 선택적
   * 컴포넌트 마운트에 의해 호출
   * 컴포넌트에서 다루는 데이터의 변화에 따라 호출
   * 오류 핸들링에 사용됨
   
 ## 마운팅
-마운트란 새로운 리액트 컴포넌트가 DOM에 배치되는 것
-언마운트란 리액트 컴포넌트가 DOM에서 제거되는 것
+
 
 constructor()
 static getDerivedStateFromProps()
@@ -21,7 +30,7 @@ componentDidMount()
 
 
 ## 업데이팅
-업데이트란 컴포넌트의 속성(Props) 또는 상태(State)가 변경되는 것
+
 
 static getDerivedStateFromProps()
 shouldComponentUpdate()
