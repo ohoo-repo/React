@@ -1,6 +1,6 @@
 ---
-title: 컴포넌트 반복
-seoTitle: 컴포넌트 반복 | React | ohoo
+title: 리스트와 키
+seoTitle: 리스트와 키 | React | ohoo
 seoDescription: description for search engines
 isFree: true
 ---
