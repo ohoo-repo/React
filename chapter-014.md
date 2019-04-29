@@ -8,14 +8,14 @@ isFree: true
 ```
 // App.js
 import React from "react";
-import Fruit from "./Fruit.js";
+import Todo from "./Todo.js";
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <p>과일의 종류</p>
-        <Fruit />
+        <p>해야할 일</p>
+        <Todo />
       </div>
     );
   }
@@ -23,86 +23,127 @@ class App extends React.Component {
 
 export default App;
 
-// Fruit.js
+// Todo.js
 import React from "react";
 
-class Fruit extends React.Component {
+class Todo extends React.Component {
   render() {
     return (
       <ul>
-        <li>딸기</li>
-        <li>망고</li>
-        <li>자몽</li>
-        <li>레몬</li>
-        <li>포도</li>
+        <li>운동</li>
+        <li>리액트 공부</li>
+        <li>방 정리</li>
       </ul>
     );
   }
 }
 
-export default Fruit;
+export default Todo;
 ```
 
 ```
 import React from "react";
 
-class Fruit extends React.Component {
+class Todo extends React.Component {
   render() {
-    const fruits = ["딸기", "망고", "자몽", "레몬", "포도"];
-    const fruitList = fruits.map(fruit => <li>{fruit}</li>);
+    const todos = ["운동", "리액트 공부", "방 정리"];
+    const todoList = todos.map(todo => <li>{todo}</li>);
 
-    return <ul>{fruitList}</ul>;
+    return <ul>{todoList}</ul>;
   }
 }
 
-export default Fruit;
+export default Todo;
 ```
 
 ```
 import React from "react";
 
-class Fruit extends React.Component {
+class Todo extends React.Component {
   render() {
-    const fruits = ["딸기", "망고", "자몽", "레몬", "포도"];
-    const fruitList = fruits.map((fruit, index) => (
-      <li key={index}>{fruit}</li>
-    ));
+    const todos = ["운동", "리액트 공부", "방 정리"];
+    const todoList = todos.map((todo, index) => <li key={index}>{todo}</li>);
 
-    return <ul>{fruitList}</ul>;
+    return <ul>{todoList}</ul>;
   }
 }
 
-export default Fruit;
+export default Todo;
 ```
 
 ```
 import React from "react";
 
-class Fruit extends React.Component {
+class Todo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fruits: ["딸기", "망고", "자몽", "레몬", "포도"]
+      todos: ["운동", "리액트 공부", "방 정리"]
     };
   }
 
   render() {
-    const fruitList = this.state.fruits.map((fruit, index) => (
-      <li key={index}>{fruit}</li>
+    const todoList = this.state.todos.map((todo, index) => (
+      <li key={index}>{todo}</li>
     ));
 
-    return <ul>{fruitList}</ul>;
+    return <ul>{todoList}</ul>;
   }
 }
 
-export default Fruit;
+export default Todo;
 ```
 
 
+```
+// 할 일 추가하기
+import React from "react";
+
+class Todo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: ["운동", "리액트 공부", "방 정리"]
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({
+      todo: e.target.value
+    });
+  }
+
+  handleClick() {
+    this.setState({
+      todos: this.state.todos.concat(this.state.todo),
+      todo: ""
+    });
+  }
+
+  render() {
+    const todoList = this.state.todos.map((todo, index) => (
+      <li key={index}>{todo}</li>
+    ));
+
+    return (
+      <div>
+        <input value={this.state.todo} onChange={this.handleChange} />
+        <button onClick={this.handleClick}>추가하기</button>
+        <ul>{todoList}</ul>
+      </div>
+    );
+  }
+}
+
+export default Todo;
+```
 
 
+```
 
-
+```
 
 
 
