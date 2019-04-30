@@ -298,15 +298,147 @@ export default withStyles(styles)(TodoInput);
 
 ## TodoList
 ```
+// TodoList.js
+import React from "react";
+import TodoItem from "./TodoItem.js";
 
+class TodoList extends React.Component {
+  render() {
+    return (
+      <div>
+        <TodoItem name="운동하기" />
+        <TodoItem name="리액트 공부하기" />
+        <TodoItem name="방 정리하기" />
+      </div>
+    );
+  }
+}
+
+export default TodoList;
+
+// TodoItem.js
+import React from "react";
+
+class TodoItem extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>{this.props.name}</p>
+      </div>
+    );
+  }
+}
+
+export default TodoItem;
+```
+
+
+```
+// TodoList.js
+import React from "react";
+import TodoItem from "./TodoItem.js";
+
+class TodoList extends React.Component {
+  render() {
+    const todos = ["운동", "리액트 공부", "방 정리"];
+    const todoList = todos.map(todo => <TodoItem name={todo} />);
+
+    return <div>{todoList}</div>;
+  }
+}
+
+export default TodoList;
 ```
 
 
 
+```
+// TodoList.js
+import React from "react";
+import TodoItem from "./TodoItem.js";
+
+class TodoList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: ["운동", "리액트 공부", "방 정리"]
+    };
+  }
+
+  render() {
+    const todoList = this.state.todos.map((todo, index) => (
+      <TodoItem key={index} name={todo} />
+    ));
+
+    return <div>{todoList}</div>;
+  }
+}
+
+export default TodoList;
+```
+
+```
+// 초기 상태를 App.js로 이동
+// App.js
+import React from "react";
+import TodoInput from "./TodoInput.js";
+import TodoList from "./TodoList.js";
+
+import { withStyles } from "@material-ui/core/styles";
+import { Card } from "@material-ui/core";
+
+const styles = {
+  card: {
+    maxWidth: 600,
+    marginTop: 40,
+    margin: "auto",
+    padding: 60
+  }
+};
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: ["운동하기", "리액트 공부", "방 정리"]
+    };
+  }
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <div>
+        <Card className={classes.card}>
+          <p>Todo 앱 만들기</p>
+          <TodoInput />
+          <TodoList todos={this.state.todos} />
+        </Card>
+      </div>
+    );
+  }
+}
+
+export default withStyles(styles)(App);
+
+// TodoList.js
+import React from "react";
+import TodoItem from "./TodoItem.js";
+
+class TodoList extends React.Component {
+  render() {
+    const todoList = this.props.todos.map((todo, index) => (
+      <TodoItem key={index} name={todo} />
+    ));
+
+    return <div>{todoList}</div>;
+  }
+}
+
+export default TodoList;
+```
 
 
+```
 
-
-
-
-
+```
