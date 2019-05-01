@@ -12,3 +12,17 @@ isFree: true
 * 디스패쳐
 * 스토어: 애플리케이션의 상태를 저장한 곳
 * 리듀서: 스토어가 가지고 있는 상태를 변화시키기 위한 함수
+
+
+## 리액트와 함께 사용하기
+```
+npm install redux react-redux
+```
+
+#### Presentational 컴포넌트와 Container 컴포넌트
+UI와 상태
+
+
+
+
+
