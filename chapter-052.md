@@ -13,10 +13,19 @@ isFree: true
 * 스토어: 애플리케이션의 상태를 저장한 곳
 * 리듀서: 스토어가 가지고 있는 상태를 변화시키기 위한 함수
 
+* 액션
+  * 액션 타입
+  * 액션 크리에이터
+* 리듀서
+  * 스토어 초기 상태
+  * 리듀서 정의
+* 스토어 
+  * createStore
+* 컴포넌트
 
 ## 리액트와 함께 사용하기
 ```
-npm install redux react-redux
+npm install react-redux
 ```
 
 #### Presentational 컴포넌트와 Container 컴포넌트
