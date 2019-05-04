@@ -7,6 +7,24 @@ isFree: true
 
 
 ```
+import React from "react";
+
+function App() {
+  return (
+    <div>
+      <p>Hello, 나제한!</p>
+      <p>Hello, 나제인!</p>
+      <p>Hello, 나제아!</p>
+      <p>Hello, 나제이!</p>
+      <p>Hello, 나제준!</p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+```
 // App.js
 import React from "react";
 import Hello from "./Hello.js";
