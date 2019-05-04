@@ -24,6 +24,35 @@ function App() {
 export default App;
 ```
 
+##  함수형 컴포넌트
+```
+import React from "react";
+
+function Hello(props) {
+  return <p>Hello, {props.name}!</p>;
+}
+
+function App() {
+  return (
+    <div>
+      <Hello name="나제한" />
+      <Hello name="나제인" />
+      <Hello name="나제아" />
+      <Hello name="나제이" />
+      <Hello name="나제준" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## class형 컴포넌트
+
+## props이 여러 개일 때
+
+
+
 ```
 // App.js
 import React from "react";
