@@ -24,7 +24,8 @@ function App() {
 export default App;
 ```
 
-##  함수형 컴포넌트
+##  함수형 컴포넌트와 class형 컴포넌트
+#### 함수형 컴포넌트
 ```
 import React from "react";
 
@@ -47,12 +48,7 @@ function App() {
 export default App;
 ```
 
-## class형 컴포넌트
-
-## props이 여러 개일 때
-
-
-
+#### class형 컴포넌트
 ```
 // App.js
 import React from "react";
@@ -88,25 +84,94 @@ class Hello extends React.Component {
 export default Hello;
 ```
 
+
+## props를 변수로 나타내기
 ```
-// Hello.js(함수형)
 import React from "react";
 
 function Hello(props) {
-  return <p>Hello {props.name}!</p>;
+  return <p>Hello, {props.name}!</p>;
 }
 
-export default Hello;
+const name = "나제한";
+
+function App() {
+  return (
+    <div>
+      <Hello name={name} />
+      <Hello name="나제인" />
+      <Hello name="나제아" />
+    </div>
+  );
+}
+
+export default App;
 ```
 
+## props이 여러 개일 때
 ```
-this.props.속성이름
+import React from "react";
+
+function Hello(props) {
+  return <p>Hello, {props.name}!</p>;
+}
+
+const person = {
+  name: "나제한"
+};
+
+function App() {
+  return (
+    <div>
+      <Hello name={person.name} />
+      <Hello name="나제인" />
+      <Hello name="나제아" />
+    </div>
+  );
+}
+
+export default App;
+```
+```
+import React from "react";
+
+function Hello(props) {
+  return (
+    <div>
+      <p>Hello, {props.name}!</p>
+      <p>저는 {props.age}살입니다.</p>
+      <p>저는 {props.title}의 저자입니다.</p>
+    </div>
+  );
+}
+
+const person = {
+  name: "나제한",
+  age: 28,
+  book: {
+    title: "하버드가기"
+  }
+};
+
+function App() {
+  return (
+    <div>
+      <Hello name={person.name} age={person.age} title={person.book.title} />
+      <Hello name="나제인" />
+      <Hello name="나제아" />
+    </div>
+  );
+}
+
+export default App;
 ```
 
 
 
 
-## props의 
+
+
+## props의 값
 ```
 import React from "react";
 
@@ -135,6 +200,11 @@ function App() {
 
 export default App;
 ```
+
+props의 값으로 문자열, 숫자, 변수 뿐만 아니라 불린, 배열, 객체, 함수도 가능함.
+추가로 조금 특별한 props 값이 있는데 바로 children임.
+
+
 
 
 ## propTypes
