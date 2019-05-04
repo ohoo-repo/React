@@ -5,6 +5,60 @@ seoDescription: description for search engines
 isFree: true
 ---
 
+
+```
+import React from "react";
+
+function Hello(props) {
+  return (
+    <div>
+      <p>Hello, {props.name}!</p>
+      <p>저는 {props.age}살입니다.</p>
+      <p>저는 {props.title}의 저자입니다.</p>
+    </div>
+  );
+}
+
+const persons = [
+  {
+    id: 0,
+    name: "나제한",
+    age: 28,
+    book: {
+      title: "하버드가기"
+    }
+  },
+  {
+    id: 1,
+    name: "나제인",
+    age: 17,
+    book: {
+      title: "서울대가기"
+    }
+  }
+];
+
+function App() {
+  return (
+    <div>
+      {persons.map(person => (
+        <Hello
+          key={person.id}
+          name={person.name}
+          age={person.age}
+          title={person.book.title}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default App;
+```
+
+
+
+
 ```
 // App.js
 import React from "react";
