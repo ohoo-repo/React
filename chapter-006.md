@@ -137,35 +137,7 @@ function App() {
 export default App;
 ```
 
-## 컴포넌트 추출하기
-```
-// App.js
-import React from "react";
-import Hello from "./Hello.js";
 
-function App() {
-  return (
-    <div>
-      <Hello />
-      <Hello />
-      <Hello />
-      <Hello />
-      <Hello />
-    </div>
-  );
-}
-
-export default App;
-
-// Hello.js
-import React from "react";
-
-function Hello() {
-  return <p>Hello world!</p>;
-}
-
-export default Hello;
-```
 
 ## UI 표현하기
 ```
