@@ -6,6 +6,14 @@ isFree: true
 ---
 
 
+```
+// HTML 요소의 이벤트 핸들러 속성
+<div onclick="이벤트 핸들러()">클릭</div>
+
+// 리액트
+<div onclick={이벤트 핸들러}>클릭</div>
+```
+
 
 ```
 // App.js
