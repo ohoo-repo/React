@@ -13,6 +13,27 @@ isFree: true
 마우스를 클릭하거나 키보드를 조작할 때 상태는 변경됩니다. 
 
 ```
+// 상태 초깃값 설정하기
+constructor(props) {
+  super(props);
+  this.state = {
+    이름: 값
+  }
+}
+
+// 상태 변경하기
+this.setState({
+  이름: 값
+})
+
+// 상태 참조하기
+this.state.
+```
+
+
+
+
+```
 // 1
 // index.js
 import React from "react";
