@@ -33,7 +33,23 @@ isFree: true
 </html>
 ```
 
+
+
+```
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+```
+
 리액트와 리액트 DOM을 사용하려면 head의 script 태그로 자바스크립트 파일을 읽어 들이고 body의 script 태그에 리액트 프로그램을 작성하면 됩니다. 위의 코드에서는 "Hello world!"라는 문장을 출력하는 간단한 프로그램을 만들어 보았습니다.  
+
+```
+<script type="text/javascript">
+  ReactDOM.render(
+    React.createElement('p', null, 'Hello world!'),
+    document.getElementById('root')
+  )
+</script>
+```
 
 전체 코드에서 HTML과 자바스크립트 코드를 제외하고 나면 React.createElement() 메서드와 ReactDOM.render() 메서드 남는데 React.createElement()는 가상의 DOM 트리를 **생성**하고 ReactDOM.render()는 생성된 DOM 트리를 **렌더링**하는 역할을 합니다.
 
