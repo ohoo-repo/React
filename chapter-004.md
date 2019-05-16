@@ -5,18 +5,22 @@ seoDescription: description for search engines
 isFree: true
 ---
 
-## 엘리먼트의 반복
+
 ```
-// 오류
 ReactDOM.render(
+  <p>Hello world!</p>
   <p>Hello world!</p>
   <p>Hello world!</p>, 
   document.getElementById('root') 
 )
+```
 
-//
+만일 동일한 리액트 엘리먼트를 하나 더 표시하고 싶다면 기존의 p 엘리먼트 밑에 또 다른 p 엘리먼트를 추가해줍니다. 이러한 경우 화면에 표시되던 문장이 사라지게 되는데 이는 오류가 발생했기 때문입니다. 
+
+```
 ReactDOM.render(
   <div>
+    <p>Hello world!</p>
     <p>Hello world!</p>
     <p>Hello world!</p>
   </div>, 
@@ -24,73 +28,82 @@ ReactDOM.render(
 )
 ```
 
+이 문제를 해결하기 위해서는 p 엘리먼트들을 div 엘리먼트로 감싸주면 됩니다. 이는 HTML과 다르게 리액트에서는 반드시 하나의 엘리먼트로 나머지 엘리먼트들을 감싸주어야 하기 때문입니다. 
+
+## 엘리먼트의 반복
+
+이번에는 p 엘리먼트의 내용을 변경한다고 가정해봅시다. "Hello world!"를 "Hello!"로 변경하려면 모든 엘리먼트를 하나하나 수정해주어야 합니다. 위의 예제에서는 엘리먼트가 3개이지만 만일 100개의 앨리먼트로 이뤄진 프로그램이라면 이를 모두 수정하는 일은 매우 번거로운 작업이 될 것입니다. 이 문제를 해결하는 방법은 p 엘리먼트의 내용을 변수로 처리하는 방법과 컴포넌트를 사용하는 방법이 있습니다. 
+
+
+동일한 내용을 표시하는 엘리먼트가 여러 개 있다고 생각해봅시다. 이 때 만일 "Hello world!" 대신 "안녕하세요!"를 나타내려고 한다면 모든 엘리먼트를 수정해야 한다는 단점이 있습니다. 이를 해결하는 방법은 2가지가 있는데 하나는 변수를 사용하는 것이고 다른 하나는 컴포넌트를 사용하는 것입니다.
+
+```
+// 변수
+const hello = "Hello!";
+
+ReactDOM.render(
+  <div>
+    <p>{hello}</p>
+    <p>{hello}</p>
+    <p>{hello}</p>
+  </div>,
+  document.getElementById("root")
+);
+```
+
+```
+// 컴포넌트
+const Hello = () => {
+  return <p>Hello!</p>;
+};
+      
+ReactDOM.render(
+  <div>
+    <Hello />
+    <Hello />
+    <Hello />
+  </div>,
+  document.getElementById("root")
+);
+```
+
+## 컴포넌트
+* 컴포넌트의 정의
+
+컴포넌트(Component)란 UI를 독립적이고 재사용이 가능한 부분으로 나눈 것을 말합니다. 단순히 디자인적으로만 분할한 것이 아니고 컴포넌트마다 각자의 기능을 갖고 있으며 각각의 컴포넌트가 결합하여 하나의 유기적인 프로그램을 만듭니다. 
+
+* 종류
+
+컴포넌트는 함수형 컴포넌트와 class형 컴포넌트가 있습니다. 함수형 컴포넌트와 class형 컴포넌트의 차이점은 class형 컴포넌트에 상태(State)가 존재한다는 점입니다.
+
+
+## 함수형 컴포넌트와 class형 컴포넌트
+함수형 컴포넌트와 class형 컴포넌트 중 어느 것을 사용해도 결과는 동일함
 
 
 ```
-<!DOCTYPE>
-<html>
-
-  <head>
-    <meta charset="utf-8" />
-    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
-    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
-  </head>
-
-  <body>
-    <div id="root"></div>
-    <script type="text/babel">
-      ReactDOM.render(
-        <div>
-          <p>Hello world!</p>
-          <p>Hello world!</p>
-        </div>, 
-        document.getElementById('root') 
-      )
-    </script>
-  </body>
-
-</html>
+// 함수형 컴포넌트
+const Hello = () => {
+  return <p>Hello!</p>;
+};
+```
+  
+```
+// class형 컴포넌트
+class Hello extends React.Component {
+  render() {
+    return <p>Hello!</p>;
+  }
+}
 ```
 
-Hello world!를 변경하려면 하나하나 변경해야 함.
-이 과정을 조금 쉽게 만들어 주는 방법은 2개
-
-* 변수
-* 컴포넌트
 
 
-```
-<!DOCTYPE >
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
-    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
-  </head>
 
-  <body>
-    <div id="root"></div>
-    <script type="text/babel">
-      const Hello = () => {
-        return <p>Hello world!</p>;
-      };
 
-      ReactDOM.render(
-        <div>
-          <Hello />
-          <Hello />
-        </div>,
-        document.getElementById("root")
-      );
-    </script>
-  </body>
-</html>
-```
-
-컴포넌트의 정의
-종류
+## 컴포넌트 추출
+HTML 코드와 자바스크립트 코드를 분리. 그리고 더 많은 노드 모듈 필요.
+create-react-app을 사용하자
 
 ```
 const Hello = () => {
@@ -110,172 +123,6 @@ ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 
-## 컴포넌트 추출
-
-HTML 코드와 자바스크립트 코드를 분리. 그리고 더 많은 노드 모듈 필요.
-create-react-app을 사용하자
-
-
-컴포넌트(Component)란 UI를 독립적이고 재사용이 가능한 부분으로 나눈 것을 말합니다. 단순히 디자인적으로만 분할한 것이 아니고 컴포넌트마다 각자의 기능을 갖고 있으며 각각의 컴포넌트가 결합하여 하나의 유기적인 프로그램을 만듭니다. 
-
-컴포넌트는 함수형 컴포넌트와 class형 컴포넌트가 있습니다. 함수형 컴포넌트와 class형 컴포넌트의 차이점은 class형 컴포넌트에 상태(State)가 존재한다는 점입니다.
-
-
-## 함수형 컴포넌트와 class형 컴포넌트
-함수형 컴포넌트와 class형 컴포넌트 중 어느 것을 사용해도 결과는 동일함
-
-#### 함수형 컴포넌트
-```
-// App.js
-
-import React from "react";
-
-function App() {
-  return (
-    <div>
-      <p>Hello world!</p>
-    </div>
-  );
-}
-
-export default App;
-```
-
-
-```
-import React from "react";
-
-const App = () => {
-  return (
-    <div>
-      <p>Hello world!</p>
-    </div>
-  );
-}
-
-export default App;
-```
-
-함수형 컴포넌트는 화살표 함수를 사용해서 표현할 수도 있습니다.
-
-
-#### class형 컴포넌트    
-```
-// App.js
-
-import React from "react";
-
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <p>Hello world!</p>
-      </div>
-    );
-  }
-}
-
-export default App;
-```
-
-
-
-
-
-## 엘리먼트의 반복
-```
-import React from "react";
-
-function App() {
-  return (
-    <div>
-      <p>Hello world!</p>
-      <p>Hello world!</p>
-      <p>Hello world!</p>
-      <p>Hello world!</p>
-      <p>Hello world!</p>
-    </div>
-  );
-}
-
-export default App;
-```
-
-동일한 내용을 표시하는 엘리먼트가 여러 개 있다고 생각해봅시다. 이 때 만일 "Hello world!" 대신 "안녕하세요!"를 나타내려고 한다면 모든 엘리먼트를 수정해야 한다는 단점이 있습니다. 이를 해결하는 방법은 2가지가 있는데 하나는 변수를 사용하는 것이고 다른 하나는 컴포넌트를 사용하는 것입니다.
-
-#### 변수
-```
-import React from "react";
-
-const hello = "Hello world!";
-
-function App() {
-  return (
-    <div>
-      <p>{hello}</p>
-      <p>{hello}</p>
-      <p>{hello}</p>
-      <p>{hello}</p>
-      <p>{hello}</p>
-    </div>
-  );
-}
-
-export default App;
-```
-
-#### 컴포넌트
-```
-import React from "react";
-
-function Hello() {
-  return <p>Hello world!</p>;
-}
-
-function App() {
-  return (
-    <div>
-      <Hello />
-      <Hello />
-      <Hello />
-      <Hello />
-      <Hello />
-    </div>
-  );
-}
-
-export default App;
-```
-
-## 컴포넌트 추출하기
-```
-// App.js
-import React from "react";
-import Hello from "./Hello.js";
-
-function App() {
-  return (
-    <div>
-      <Hello />
-      <Hello />
-      <Hello />
-      <Hello />
-      <Hello />
-    </div>
-  );
-}
-
-export default App;
-
-// Hello.js
-import React from "react";
-
-function Hello() {
-  return <p>Hello world!</p>;
-}
-
-export default Hello;
-```
 
 ## UI 표현하기
 ```
