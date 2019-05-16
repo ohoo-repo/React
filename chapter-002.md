@@ -106,18 +106,7 @@ React.createElement()는 브라우저 DOM의 document.createElement()와 유사�
 </script>
 ```
 
-```
-<script type="text/javascript">
-  ReactDOM.render(
-    React.createElement('div', null,
-      React.createElement('p', null, 'Hello world!'),
-      React.createElement('p', null, 'Hello world!'),
-      React.createElement('p', null, 'Hello world!')
-    ),
-    document.getElementById('root')
-  )
-</script>
-```
+리액트 엘리먼트는 HTML 엘리먼트와 같이 중첩이 가능합니다. 위의 코드 박스는 p 엘리먼트를 div 엘리먼트로 감싼 것을 나타냅니다. 이 예제에서는 전부 2개의 엘리먼트 밖에 없지만 실제로 프로그램을 작성하게 되면 이보다 훨씬 많은 수의 
 
 
 
