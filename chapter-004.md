@@ -5,6 +5,116 @@ seoDescription: description for search engines
 isFree: true
 ---
 
+## 엘리먼트의 반복
+```
+// 오류
+ReactDOM.render(
+  <p>Hello world!</p>
+  <p>Hello world!</p>, 
+  document.getElementById('root') 
+)
+
+//
+ReactDOM.render(
+  <div>
+    <p>Hello world!</p>
+    <p>Hello world!</p>
+  </div>, 
+  document.getElementById('root') 
+)
+```
+
+
+
+```
+<!DOCTYPE>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      ReactDOM.render(
+        <div>
+          <p>Hello world!</p>
+          <p>Hello world!</p>
+        </div>, 
+        document.getElementById('root') 
+      )
+    </script>
+  </body>
+
+</html>
+```
+
+Hello world!를 변경하려면 하나하나 변경해야 함.
+이 과정을 조금 쉽게 만들어 주는 방법은 2개
+
+* 변수
+* 컴포넌트
+
+
+```
+<!DOCTYPE >
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const Hello = () => {
+        return <p>Hello world!</p>;
+      };
+
+      ReactDOM.render(
+        <div>
+          <Hello />
+          <Hello />
+        </div>,
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
+```
+
+컴포넌트의 정의
+종류
+
+```
+const Hello = () => {
+  return <p>Hello world!</p>;
+};
+
+const App = () => {
+  return (
+    <div>
+      <Hello />
+      <Hello />
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById("root"));
+```
+
+
+## 컴포넌트 추출
+
+HTML 코드와 자바스크립트 코드를 분리. 그리고 더 많은 노드 모듈 필요.
+create-react-app을 사용하자
+
 
 컴포넌트(Component)란 UI를 독립적이고 재사용이 가능한 부분으로 나눈 것을 말합니다. 단순히 디자인적으로만 분할한 것이 아니고 컴포넌트마다 각자의 기능을 갖고 있으며 각각의 컴포넌트가 결합하여 하나의 유기적인 프로그램을 만듭니다. 
 
