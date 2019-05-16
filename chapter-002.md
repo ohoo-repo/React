@@ -6,22 +6,9 @@ isFree: true
 ---
 
 
-브라우저는 HTML, CSS 코드를 분석해서 DOM 트리와 CSSOM 트리를 생성하고 
+기존의 웹 앱은 HTML, CSS로 기본적인 코드를 작성한 다음 자바스크립트로 원하는 부분을 수정하는 방식으로 만들어 졌습니다. 이러한 일은 DOM이라는 개념이 있기 때문에 가능할 수 있었는데 실제로 DOM을 조작하면 전체 렌더 트리를 새로 생성하므로 성능적인 면에서는 비효율적인 방식이었습니다. 그러므로 리액트는 가상 DOM이라는 개념을 도입하여 매번 DOM을 조작하지 않고 가상 DOM과 실제 DOM의 차이가 있는 부분만 업그레이드하는 방식으로 변경했습니다. 이러한 방식은 기존에 DOM의 조작을 최소화해야 했던 것과 다르게 얼마든지 DOM 조작을 자유롭게 할 수 있도록 하였습니다. 이로 인해 과거에 HTML로 작성되던 많은 부분이 자바스크립트로 대체되었습니다.
 
-
-DOM은 HTML, CSS 코드를 분석해서 각 요소에 해당하는 객체를 생성하며 그 결과 자바스크립트로 HTML과 CSS 코드를 제어하는 것이 가능해집니다. 하지만 이 때 DOM을 조작하면 렌더 트리가 처음부터 다시 생성
-
-* DOM의 역할
-* DOM의 단점
-* 리액트 가상 DOM
-
-
-(Document Object Model)이란 문서를 제어하는 API를 말합니다. DOM은 문서를 분석해서 문서의 각 요소에 해당하는 객체를 생성합니다. 이 객체들은 모여서 하나의 계층 구조를 만들게 되는데 나뭇가지가 뻣어있는 모양을 가진 구조라는 의미로 DOM 트리(tree)라고 부릅니다. DOM 트리를 통해 문서의 각 요소에 접근해서 문서의 
-
-리액트에서의 DOM은 브라우저의
-
-
-
+이제 가상 DOM을 사용하는 방식에 대해 배워보겠습니다.
 
 ```
 <!DOCTYPE>
@@ -51,6 +38,21 @@ DOM은 HTML, CSS 코드를 분석해서 각 요소에 해당하는 객체를 생
 전체 코드에서 HTML과 자바스크립트 코드를 제외하고 나면 React.createElement() 메서드와 ReactDOM.render() 메서드 남는데 React.createElement()는 가상의 DOM 트리를 **생성**하고 ReactDOM.render()는 생성된 DOM 트리를 **렌더링**하는 역할을 합니다.
 
 
+## DOM 트리 렌더링하기
+
+```
+ReactDOM.render(React 엘리먼트, document.getElementById('root'));
+```
+
+React 엘리먼트를 "root" DOM 노드에 렌더링하려면 React 엘리먼트와 "root" DOM 노드를 ReactDOM.render() 메서드에 전달합니다.
+
+React DOM은 React 엘리먼트와 일치하도록 DOM을 업데이트합니다.
+
+```
+ReactDOM.render(element, container[, callback])
+```
+
+'React DOM(가상 DOM)을 만들어서 렌더링한다'
 
 
 ```
@@ -60,7 +62,7 @@ DOM은 HTML, CSS 코드를 분석해서 각 요소에 해당하는 객체를 생
 이것은 "root" DOM 노드이며 이 노드 안의 모든 것들은 React DOM에 의해 관리됩니다. 
 
 
-## DOM 트리 생성하기
+## virtual DOM 생성하기
 ```
 React.createElement(type, [props], [...children])
 ```
@@ -90,25 +92,7 @@ document.createTextNode('텍스트')
 
 React.createElement()는 브라우저 DOM의 document.createElement()와 유사하지만 약간의 차이가 있습니다. 
 
-#### 리액트 컴포넌트
-```
-// 컴포넌트 생성하기
-class App extends React.Component {
-  render() {
-    return(
-      React.createElement('p', null, 'Hello world!')
-    )
-  }
-}
-
-ReactDOM.render(
-  React.createElement(App, null),
-  document.getElementById('root')
-)
-```
-
-
-
+#### 리액트 엘리먼트 중첩
 
 ```
 // 중첩
@@ -138,19 +122,17 @@ ReactDOM.render(
 
 
 
-## DOM 트리 렌더링하기
 
-```
-ReactDOM.render(React 엘리먼트, document.getElementById('root'));
-```
 
-React 엘리먼트를 "root" DOM 노드에 렌더링하려면 React 엘리먼트와 "root" DOM 노드를 ReactDOM.render() 메서드에 전달합니다.
 
-React DOM은 React 엘리먼트와 일치하도록 DOM을 업데이트합니다.
 
-```
-ReactDOM.render(element, container[, callback])
-```
 
-'React DOM(가상 DOM)을 만들어서 렌더링한다'
+
+
+
+
+
+
+
+
 
