@@ -76,42 +76,7 @@ JSX는 앞서 이야기 했듯이 HTML처럼 생겼지만 자바스크립트입�
 <script type="text/babel">...</script>
 ```
 
-```
-// 중첩
-<script type="text/babel">
-  ReactDOM.render(
-    <div>
-      <p>Hello world!</p>
-    </div>, 
-    document.getElementById('root') 
-  )
-</script>
-```
 
-```
-<script type="text/babel">
-  ReactDOM.render(
-    <div>
-      <p>Hello world!</p>
-      <p>Hello world!</p>
-      <p>Hello world!</p>
-    </div>, 
-    document.getElementById('root') 
-  )
-</script>
-```
-
-```
-<script type="text/babel">
- const hello = "Hello world!"
-  ReactDOM.render(
-  <div>
-    <p>{hello} 1</p>
-    <p>{hello} 2</p>
-    <p>{hello} 3</p>
-  </div>, document.getElementById('root') )
-</script>
-```
 
 ## JSX 문법
 
