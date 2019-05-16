@@ -6,6 +6,40 @@ isFree: true
 ---
 
 
+```
+<!DOCTYPE >
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const Hello = () => {
+        return <p>Hello!</p>;
+      };
+
+      const App = () => {
+        return (
+          <div>
+            <Hello />
+            <Hello />
+            <Hello />
+          </div>
+        );
+      };
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
+```
+
+
 실제로 프로그램을 개발할 때는 리액트, 리액트 DOM, 바벨 이외에도 많은 도구들이 필요한데 이러한 도구들을 하나씩 따로 설치하고 설정하는 것은 매우 번거로운 일입니다. 그러므로 페이스북에서는 리액트 개발을 조금 더 간편하게 할 수 있도록 create-react-app이라는 툴체인을 제공합니다.
 
 create-react-app은 개발 뿐만 아니라 리액트를 배우고 연습하는데도 매우 유용하므로 create-react-app를 설치 및 사용하는 방법에 대해 배워보겠습니다.
