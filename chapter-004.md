@@ -107,12 +107,13 @@ create-react-app을 사용하자
 
 ```
 const Hello = () => {
-  return <p>Hello world!</p>;
+  return <p>Hello!</p>;
 };
 
 const App = () => {
   return (
     <div>
+      <Hello />
       <Hello />
       <Hello />
     </div>
