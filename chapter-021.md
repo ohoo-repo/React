@@ -6,3 +6,8 @@ isFree: true
 ---
 
 라우팅
+
+
+```
+npm install react-router
+```
