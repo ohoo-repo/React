@@ -13,15 +13,15 @@ map() 함수
 import React from "react";
 
 const Hello = props => {
-  return <p>Hello! {props.name}</p>;
+  return <p>Hello! {props.customer}</p>;
 };
 
 const App = () => {
   return (
     <div>
-      <Hello name="나제일" />
-      <Hello name="나제준" />
-      <Hello name="나제한" />
+      <Hello customer="나제일" />
+      <Hello customer="나제준" />
+      <Hello customer="나제한" />
     </div>
   );
 };
@@ -34,17 +34,17 @@ export default App;
 import React from "react";
 
 const Hello = props => {
-  return <p>Hello! {props.name}</p>;
+  return <p>Hello! {props.customer}</p>;
 };
 
-const name1 = "나제일";
+const customer = "나제일";
 
 const App = () => {
   return (
     <div>
-      <Hello name={name1} />
-      <Hello name="나제준" />
-      <Hello name="나제한" />
+      <Hello customer={customer} />
+      <Hello customer="나제준" />
+      <Hello customer="나제한" />
     </div>
   );
 };
@@ -58,16 +58,16 @@ export default App;
 import React from "react";
 
 const Hello = props => {
-  return <p>Hello! {props.name}</p>;
+  return <p>Hello! {props.customer}</p>;
 };
 
-const names = ["나제일", "나제준", "나제한"];
+const customers = ["나제일", "나제준", "나제한"];
 
 const App = () => {
   return (
     <div>
-      {names.map(name => (
-        <Hello name={name} />
+      {customers.map(customer => (
+        <Hello customer={customer} />
       ))}
     </div>
   );
@@ -89,14 +89,51 @@ name 속성 위에 key 속성을 추가하자
 키(Key)는 어떤 항목이 변경, 추가, 제거되었는지 리액트가 식별할 수 있게 도와주는 역할을 합니다. 배열 내의 엘리먼트를 식별할 수 있도록 엘리먼트에 키 속성을 추가해야 합니다.
 
 ```
-{names.map((name, index) => (
-  <Hello name={name} key={index} />
+{customers.map(customer => (
+  <Hello customer={customer} key={index}/>
 ))}
 ```
 
 #### 키를 추가하는 방법 3가지
 
+* index
+*
+*
 
+```
+import React from "react";
+
+const Hello = props => {
+  return <p>Hello! {props.customer}</p>;
+};
+
+const customers = [
+  {
+    id: 1,
+    name: "나제일"
+  },
+  {
+    id: 2,
+    name: "나제준"
+  },
+  {
+    id: 3,
+    name: "나제한"
+  }
+];
+
+const App = () => {
+  return (
+    <div>
+      {customers.map(customer => (
+        <Hello customer={customer.name} key={customer.id} />
+      ))}
+    </div>
+  );
+};
+
+export default App;
+```
 
 
 
