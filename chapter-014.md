@@ -105,7 +105,54 @@ export default Like;
 ```
 
 
+```
+// 이벤트를 최상위 컴포넌트에서 관리
+// App.js
+import React from "react";
+import Like from "./Like.js";
 
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      like: 0
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState({
+      like: this.state.like + 1
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <Like like={this.state.like} handleClick={this.handleClick} />
+      </div>
+    );
+  }
+}
+
+export default App;
+
+// Like.js
+import React from "react";
+
+class Like extends React.Component {
+  render() {
+    return (
+      <div>
+        <div>{this.props.like}</div>
+        <button onClick={this.props.handleClick}>좋아요</button>
+      </div>
+    );
+  }
+}
+
+export default Like;
+```
 
 
 ## 이벤트 객체
