@@ -73,13 +73,17 @@ render()
 
 render 메서드는 class형 컴포넌트의 유일한 필수 메서드입니다.
 
-render 메서드가 호출될 때 render 메서드는 this.props와 this.state를 검토하고 다음 유형 중 하나를 반환해야 합니다.
+render 메서드가 호출될 때 render 메서드는 this.props와 this.state를 검토하고 다음 유형 중 하나를 return해야 합니다.
 
 * 리액트 엘리먼트
 * 배열과 fragment
 * portal
 * 문자열과 숫자
 * 논리값 혹은 null
+
+render() 함수는 순수 함수여야 합니다. 조금 더 자세히 말하자면 render() 함수는 컴포넌트의 상태를 변경하지 않고, render() 함수가 호출될 때마다 동일한 결과를 return하며, 브라우저와 직접 상호 작용하지 않아야 된다는 것을 의미합니다.
+
+브라우저와 상호 작용하고 싶다면 componentDidMount()나 다른 라이프사이클 메서드에서 그 작업을 수행해야 합니다.
 
 #### componentDidMount()
 
