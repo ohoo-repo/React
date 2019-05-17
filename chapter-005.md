@@ -119,7 +119,41 @@ npm start
 ```
 
 
+```
+// index.html
 
+// index.js
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App.js";
+
+ReactDOM.render(<App />, document.getElementById("root"));
+
+// App.js
+import React from "react";
+import Hello from "./Hello.js";
+
+const App = () => {
+  return (
+    <div>
+      <Hello />
+      <Hello />
+      <Hello />
+    </div>
+  );
+};
+
+export default App;
+
+// Hello.js
+import React from "react";
+
+const Hello = () => {
+  return <p>Hello!</p>;
+};
+
+export default Hello;
+```
 
 
 
