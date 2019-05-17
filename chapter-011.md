@@ -7,72 +7,58 @@ isFree: true
 
 
 ```
-import React from "react";
-
-function App() {
-  return (
-    <div>
-      <p>Hello, 나제한!</p>
-      <p>Hello, 나제인!</p>
-      <p>Hello, 나제아!</p>
-      <p>Hello, 나제이!</p>
-      <p>Hello, 나제준!</p>
-    </div>
-  );
-}
-
-export default App;
-```
-
-##  함수형 컴포넌트와 class형 컴포넌트
-#### 함수형 컴포넌트
-```
-import React from "react";
-
-function Hello(props) {
-  return <p>Hello, {props.name}!</p>;
-}
-
-function App() {
-  return (
-    <div>
-      <Hello name="나제한" />
-      <Hello name="나제인" />
-      <Hello name="나제아" />
-      <Hello name="나제이" />
-      <Hello name="나제준" />
-    </div>
-  );
-}
-
-export default App;
-```
-
-#### class형 컴포넌트
-```
 // App.js
 import React from "react";
 import Hello from "./Hello.js";
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Hello name="나제이"/>
-        <Hello name="나제일"/>
-        <Hello name="나제준"/>
-        <Hello name="나제현"/>
-        <Hello name="나제환"/>
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <div>
+      <Hello />
+      <Hello />
+      <Hello />
+    </div>
+  );
+};
 
 export default App;
 
 // Hello.js
 import React from "react";
 
+const Hello = () => {
+  return <p>Hello!</p>;
+};
+
+export default Hello;
+```
+
+```
+// App.js
+<div>
+  <Hello name="나이제" />
+  <Hello name="선민식"/>
+  <Hello name="이재준"/>
+</div>
+
+// Hello.js
+const Hello = props => {
+  return <p>Hello! {props.name}</p>;
+};
+```
+
+##  함수형 컴포넌트와 class형 컴포넌트
+#### 함수형 컴포넌트
+```
+// Hello.js
+const Hello = props => {
+  return <p>Hello! {props.name}</p>;
+};
+```
+
+#### class형 컴포넌트
+```
+// Hello.js
 class Hello extends React.Component {
   render() {
     return (
@@ -80,8 +66,6 @@ class Hello extends React.Component {
     );
   }
 }
-
-export default Hello;
 ```
 
 
@@ -166,7 +150,9 @@ function App() {
 export default App;
 ```
 
-
+## ...연산자 
+함수형 {...props}
+class형 {...this.props}
 
 
 
