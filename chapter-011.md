@@ -151,6 +151,8 @@ export default App;
 ```
 
 ## ...연산자 
+그림: 속성이 전달되는 과정
+
 함수형 {...props}
 class형 {...this.props}
 
