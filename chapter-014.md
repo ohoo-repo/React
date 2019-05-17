@@ -16,62 +16,112 @@ isFree: true
 
 
 ```
+// 1 
 // App.js
 import React from "react";
-import NameInput from "./NameInput.js";
+import Like from "./Like.js";
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <p>이름을 입력하세요.</p>
-        <NameInput/>
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <div>
+      <Like />
+    </div>
+  );
+};
 
 export default App;
 
-// NameInput.js
+// Like.js
 import React from "react";
 
-class NameInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: ""
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleChange(e) {
-    this.setState({ name: e.target.value });
-  }
-
-  handleClick() {
-    alert(this.state.name);
-    this.setState({ name: "" });
-  }
-
+class Like extends React.Component {
   render() {
     return (
       <div>
-        <input
-          type="text"
-          name="name"
-          placeholder="이름을 입력하세요."
-          value={this.state.name}
-          onChange={this.handleChange}
-        />
-        <button type="button" onClick={this.handleClick}>
-          click
-        </button>
+        <div>0</div>
+        <button>좋아요</button>
       </div>
     );
   }
 }
 
-export default NameInput;
+export default Like;
 ```
+ 
+ 
+```
+// 2. 초깃값 설정
+constructor(props) {
+  super(props);
+  this.state = {
+    like: 0
+  };
+}
+```
+
+```
+// 3. 상태 참조
+<div>
+  <div>{this.state.like}</div>
+  <button>좋아요</button>
+</div>
+```
+
+```
+// 4 이벤트 처리
+// button 컴포넌트에 이벤트 핸들러 추가
+// 이벤트 핸들러 정의
+// 이벤트 핸들러 바인딩
+
+// Like.js
+import React from "react";
+
+class Like extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      like: 0
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState({
+      like: this.state.like + 1
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <div>{this.state.like}</div>
+        <button onClick={this.handleClick}>좋아요</button>
+      </div>
+    );
+  }
+}
+
+export default Like;
+```
+
+
+
+
+
+## 이벤트 객체
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
