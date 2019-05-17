@@ -6,302 +6,101 @@ isFree: true
 ---
 
 
+map() 함수
+
+
 ```
 import React from "react";
 
-function Hello(props) {
+const Hello = props => {
+  return <p>Hello! {props.name}</p>;
+};
+
+const App = () => {
   return (
     <div>
-      <p>Hello, {props.name}!</p>
-      <p>저는 {props.age}살입니다.</p>
-      <p>저는 {props.title}의 저자입니다.</p>
+      <Hello name="나제일" />
+      <Hello name="나제준" />
+      <Hello name="나제한" />
     </div>
   );
-}
+};
 
-const persons = [
-  {
-    id: 0,
-    name: "나제한",
-    age: 28,
-    book: {
-      title: "하버드가기"
-    }
-  },
-  {
-    id: 1,
-    name: "나제인",
-    age: 17,
-    book: {
-      title: "서울대가기"
-    }
-  }
-];
+export default App;
+```
 
-function App() {
+
+```
+import React from "react";
+
+const Hello = props => {
+  return <p>Hello! {props.name}</p>;
+};
+
+const name1 = "나제일";
+
+const App = () => {
   return (
     <div>
-      {persons.map(person => (
-        <Hello
-          key={person.id}
-          name={person.name}
-          age={person.age}
-          title={person.book.title}
-        />
+      <Hello name={name1} />
+      <Hello name="나제준" />
+      <Hello name="나제한" />
+    </div>
+  );
+};
+
+export default App;
+```
+
+속성을 변수로 나타낼 수 있음
+
+```
+import React from "react";
+
+const Hello = props => {
+  return <p>Hello! {props.name}</p>;
+};
+
+const names = ["나제일", "나제준", "나제한"];
+
+const App = () => {
+  return (
+    <div>
+      {names.map(name => (
+        <Hello name={name} />
       ))}
     </div>
   );
-}
+};
 
 export default App;
 ```
 
+배열과 map() 함수를 사용하면 됨
 
-
-
+콘솔 창을 열어보면 다음과 같은 메세지가 표시됨
 ```
-// App.js
-import React from "react";
-import Todo from "./Todo.js";
-
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <p>해야할 일</p>
-        <Todo />
-      </div>
-    );
-  }
-}
-
-export default App;
-
-// Todo.js
-import React from "react";
-
-class Todo extends React.Component {
-  render() {
-    return (
-      <ul>
-        <li>운동</li>
-        <li>리액트 공부</li>
-        <li>방 정리</li>
-      </ul>
-    );
-  }
-}
-
-export default Todo;
+Warning: Each child in a list should have a unique "key" prop.
 ```
 
-```
-import React from "react";
+key 속성을 넣어주라는 이야기
+name 속성 위에 key 속성을 추가하자
 
-class Todo extends React.Component {
-  render() {
-    const todos = ["운동", "리액트 공부", "방 정리"];
-    const todoList = todos.map(todo => <li>{todo}</li>);
-
-    return <ul>{todoList}</ul>;
-  }
-}
-
-export default Todo;
-```
+키(Key)는 어떤 항목이 변경, 추가, 제거되었는지 리액트가 식별할 수 있게 도와주는 역할을 합니다. 배열 내의 엘리먼트를 식별할 수 있도록 엘리먼트에 키 속성을 추가해야 합니다.
 
 ```
-import React from "react";
-
-class Todo extends React.Component {
-  render() {
-    const todos = ["운동", "리액트 공부", "방 정리"];
-    const todoList = todos.map((todo, index) => <li key={index}>{todo}</li>);
-
-    return <ul>{todoList}</ul>;
-  }
-}
-
-export default Todo;
+{names.map((name, index) => (
+  <Hello name={name} key={index} />
+))}
 ```
 
-```
-import React from "react";
-
-class Todo extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: ["운동", "리액트 공부", "방 정리"]
-    };
-  }
-
-  render() {
-    const todoList = this.state.todos.map((todo, index) => (
-      <li key={index}>{todo}</li>
-    ));
-
-    return <ul>{todoList}</ul>;
-  }
-}
-
-export default Todo;
-```
+#### 키를 추가하는 방법 3가지
 
 
-```
-// 할 일 추가하기
-import React from "react";
-
-class Todo extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: ["운동", "리액트 공부", "방 정리"]
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleChange(e) {
-    this.setState({
-      todo: e.target.value
-    });
-  }
-
-  handleClick() {
-    this.setState({
-      todos: this.state.todos.concat(this.state.todo),
-      todo: ""
-    });
-  }
-
-  render() {
-    const todoList = this.state.todos.map((todo, index) => (
-      <li key={index}>{todo}</li>
-    ));
-
-    return (
-      <div>
-        <input value={this.state.todo} onChange={this.handleChange} />
-        <button onClick={this.handleClick}>추가하기</button>
-        <ul>{todoList}</ul>
-      </div>
-    );
-  }
-}
-
-export default Todo;
-```
 
 
-```
-// 전체 삭제하기
-import React from "react";
 
-class Todo extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: ["운동", "리액트 공부", "방 정리"]
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleRemove = this.handleRemove.bind(this);
-  }
 
-  handleChange(e) {
-    this.setState({
-      todo: e.target.value
-    });
-  }
 
-  handleClick() {
-    this.setState({
-      todos: this.state.todos.concat(this.state.todo),
-      todo: ""
-    });
-  }
-
-  handleRemove() {
-    this.setState({
-      todos: []
-    });
-  }
-
-  render() {
-    const todoList = this.state.todos.map((todo, index) => (
-      <li key={index}>{todo}</li>
-    ));
-
-    return (
-      <div>
-        <input value={this.state.todo} onChange={this.handleChange} />
-        <button onClick={this.handleClick}>추가하기</button>
-        <button onClick={this.handleRemove}>제거하기</button>
-        <ul>{todoList}</ul>
-      </div>
-    );
-  }
-}
-
-export default Todo;
-```
-
-```
-// 하나씩 삭제하기
-import React from "react";
-
-class Todo extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: ["운동", "리액트 공부", "방 정리"],
-      todo: ""
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleDoubleClick = this.handleDoubleClick.bind(this);
-  }
-
-  handleChange(e) {
-    this.setState({
-      todo: e.target.value
-    });
-  }
-
-  handleClick() {
-    this.setState({
-      todos: this.state.todos.concat(this.state.todo),
-      todo: ""
-    });
-  }
-
-  handleDoubleClick(index) {
-    const { todos } = this.state;
-    this.setState({
-      todos: [...todos.slice(0, index), ...todos.slice(index + 1, todos.length)]
-    });
-  }
-
-  render() {
-    const todoList = this.state.todos.map((todo, index) => (
-      <li key={index} onDoubleClick={() => this.handleDoubleClick(index)}>
-        {todo}
-      </li>
-    ));
-
-    return (
-      <div>
-        <input value={this.state.todo} onChange={this.handleChange} />
-        <button onClick={this.handleClick}>추가하기</button>
-        <ul>{todoList}</ul>
-      </div>
-    );
-  }
-}
-
-export default Todo;
-```
 
 
