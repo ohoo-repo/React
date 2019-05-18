@@ -92,16 +92,21 @@ export default withStyles(styles)(App);
 ```
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+import { Button, Card } from "@material-ui/core";
 
 const styles = {
   button: {
     backgroundColor: "grey",
     margin: 10
+  },
+  card: {
+    padding: 30,
+    maxWidth: 480,
+    margin: "auto"
   }
 };
 
-class Todo extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -150,21 +155,27 @@ class Todo extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div style={{}}>
-        <input value={this.state.todo} onChange={this.handleChange} />
-        <Button className={classes.button} onClick={this.handleClick}>
-          추가하기
-        </Button>
-        <Button className={classes.button} onClick={this.handleRemove}>
-          전체 제거하기
-        </Button>
-        <ul>{todoList}</ul>
+      <div>
+        <Card className={classes.card}>
+          <div>
+            <input value={this.state.todo} onChange={this.handleChange} />
+            <Button className={classes.button} onClick={this.handleClick}>
+              추가하기
+            </Button>
+            <Button className={classes.button} onClick={this.handleRemove}>
+              전체 제거하기
+            </Button>
+          </div>
+          <div>
+            <ul>{todoList}</ul>
+          </div>
+        </Card>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(Todo);
+export default withStyles(styles)(App);
 ```
 
 
