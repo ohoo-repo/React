@@ -143,6 +143,11 @@ class App extends React.Component {
 export default App;
 ```
 
+#### radio
+
+
+
+
 
 ## textarea
 ```
