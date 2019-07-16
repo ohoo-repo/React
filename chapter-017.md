@@ -150,6 +150,80 @@ HTML에서 \<input type="file">은 사용자가 기계 장치의 스토리지에
 
 
 
+## Controlled Input Null Value
+
+controlled component에 value prop을 지정하면 사용자는 input을 변경할 수 없습니다. 만일 value를 지정했지만 input이 여전히 수정가능하다면 아마 value가 undefined 혹은 null로 설정되어 있을 것입니다.
+
+다음 코드가 이를 잘 설명해줍니다.(처음에 input은 고정되어 있지만 약간의 시간이 지난 후에 수정이 가능해집니다.)
+```
+ReactDOM.render(<input value="hi" />, mountNode);
+
+setTimeout(function() {
+  ReactDOM.render(<input value={null} />, mountNode);
+}, 1000);
+```
+
+
+## Alternatives to Controlled Components
+데이터가 변경되는 모든 방법에 대한 이벤트 핸들러를 작성하고 리액트 컴포넌트를 통해서 모든 input state를 보내야 하므로 controlled components를 사용하는 일은 때로 번거로울 수도 있습니다. 이는 기존의 코드를 리액트로 바꾸거나 리액트 애플리케이션을 비-리액트 라이브러리와 통합할 때 특히 더 그렇습니다. 이러한 경우에는 input 폼을 실행하는 대체적인 기술인 uncontrolled components를 확인해볼 수 있습니다.
+
+
+## Fully-Fledged Solutions
+만일 여러분이 유효성 검사, 방문된 필드에 대한 추적 그리고 폼 제출 처리하기를 모두 포함한 완벽한 해결책을 찾고 있다면 Formik은 가장 인기있는 선택 중의 하나가 될 것입니다. 그러나 Formik은 controlled components와 상태 관리와 동일한 원리에 따라 작성되었습니다. 
+
+
+## Uncontrolled Components
+대부분의 상황에서 우리는 폼을 실행하기 위해 제어 컴포넌트를 사용하길 추천합니다. 제어 컴포넌트에서 폼 데이터는 리액트 컴포넌트에 의해 처리됩니다. 제어 컴포넌트를 사용하는 대신 비제어 컴포넌트를 사용할 수도 있는데 비제어 컴포넌트에서 폼 데이터는 DOM 자체에 의해 처리됩니다.
+
+매번 상태 업데이트를 하기 위해 이벤트 핸드러를 사용하는 대신에 비제어 컴포넌트를 사용하기 위해서 여러분은 DOM에서 폼 값을 가져오는 ref를 사용할 수 있습니다.
+
+예를 들면 이 코드는 비제어 컴포넌트에서 하나의 이름(name)을 받아들입니다.
+```
+class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.input = React.createRef();
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.input.current.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" ref={this.input} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+```
+
+비제어 컴포넌트가 DOM에서 진실의 소스를 유지하기 때문에 비제어 컴포넌트를 사용하는게 리액트와 비-리액트 코드를 결합을 좀 더 쉽게 만들어 줍니다. 비제어 컴포넌트를 사용하면 더 적은 코드를 작성하게 된다는 장점도 있습니다.
+
+언제 제어 혹은 비제어 컴포넌트를 사용해야 하는지 아직 명확하지 않다면 다음의 기사가 도움이 될 것입니다.
+원문을 읽어보려면 https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
