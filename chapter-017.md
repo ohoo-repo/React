@@ -120,9 +120,33 @@ this.state.value는 생성자에서 초깃값을 설정한다는 점에 유의�
 ---
 
 ## The select Tag
+HTML에서 \<select>는 drop-down 목록을 생성합니다. 예를 들면 아래 HTML은 맛에 대한 drop-down 목록을 생성합니다.
+```
+<select>
+  <option value="grapefruit">Grapefruit</option>
+  <option value="lime">Lime</option>
+  <option selected value="coconut">Coconut</option>
+  <option value="mango">Mango</option>
+</select>
+```
+
+selected 속성으로 인해 초깃값으로 Coconut 옵션이 선택되었다는 점에 유의하세요. 리액트에서는 selected 속성을 사용하는 대신에 루트 select 태그에서 value 속성을 사용합니다. controlled component에서는 한 곳에서 업데이트를 할 수 있으므로 이 방식이 조금 더 편리합니다. 
 
 
+결과적으로 이것은 \<input type="text">, \<textarea> 그리고 \<select> 모두 비슷하게 작동하도록 합니다. 그들은 value 속성을 받아들여 여러분이 controlled component를 실행할 수 있도록 합니다. 
 
+
+## The file input Tag
+HTML에서 \<input type="file">은 사용자가 기계 장치의 스토리지에서 서버로 업로드되거나 파일 API를 통해 자바스크립트로 처리될 하나 혹은 그 이상의 파일을 선택하도록 합니다. 
+```
+<input type="file" />
+```
+
+그 값은 읽기 전용이므로 리액트에서 이것은 uncontrolled component입니다. 이는 나중에 다른 uncontrolled component들과 함께 설명될 것입니다.
+
+
+## Handling Multiple Inputs
+여러 개의 controlled input 엘리먼트를 처리해야할 때 여러분은 각 엘리먼트에 name 속성을 추가하고 핸들러 함수가 event.target.name 값에 따라 무엇을 할 지 선택하도록 할 수 있습니다.
 
 
 
