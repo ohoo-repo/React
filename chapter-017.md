@@ -6,7 +6,7 @@ isFree: true
 ---
 
 
-HTML 폼 엘리먼트는 리액트의 다른 DOM 엘리먼트들과 약간 다르게 작동합니다. 왜냐하면 폼 엘리먼트는 몇몇 내부 상태(state)를 갖기 때문입니다. 예를 들면 일반적인 HTML에서 폼은 하나의 이름(name)을 받아들입니다.
+HTML 폼 엘리먼트는 리액트의 다른 DOM 엘리먼트들과 약간 다르게 작동합니다. 왜냐하면 폼 엘리먼트는 몇몇 내부 상태(state)를 갖기 때문입니다. 다음 코드는 이름을 적는 HTML 폼입니다.
 ```
 <form>
   <label>
@@ -17,7 +17,7 @@ HTML 폼 엘리먼트는 리액트의 다른 DOM 엘리먼트들과 약간 다�
 </form>
 ```
 
-이 폼은 사용자가 폼을 제출했을 때 새로운 페이지로 이동하는 기본적인 HTML 폼 동작을 갖습니다. 만일 리액트에서 이 동작을 원한다면 그냥 작동하도록 두면 됩니다. 하지만 대부분의 경우에 폼의 제출을 처리하고 사용자가 폼에 입력한 데이터애 접근하는 자바스크립트 함수를 갖는 것이 편리합니다. 이를 위한 일반적인 방법은 controlled components라고 불리는 기술을 사용하는 것입니다.
+이 폼은 사용자가 폼을 제출했을 때 새로운 페이지로 이동하는 기본적인 HTML 폼 동작을 갖습니다. 만일 리액트에서 이 동작을 원한다면 그냥 작동하도록 두면 됩니다. 하지만 대부분의 경우에는 자바스크립트 함수로 제출된 폼을 처리하고 폼에 입력된 데이터를 다룹니다. 이를 위한 일반적인 방법은 controlled components를 사용하는 것입니다.
 
 
 ## Controlled Components
@@ -60,7 +60,7 @@ class NameForm extends React.Component {
 }
 ```
 
-폼 엘리먼트에 value 속성이 설정되었기 때문에 표시된 값은 항상 리액트 상태를 진실의 소스로 만드는 this.state.value일 것입니다. handleChange는 키를 누를 때마다 리액트 상태를 업데이트하므로 표시된 값은 사용자가 타이핑을 할 때마다 업데이트될 것입니다.
+폼 엘리먼트에는 value 속성이 설정되어 있으며 표시된 값은 항상 리액트 상태를 진실의 소스로 만드는 this.state.value입니다. handleChange는 키를 누를 때마다 리액트 상태를 업데이트하므로 표시된 값은 사용자가 타이핑을 할 때마다 업데이트될 것입니다.
 
 controlled component를 사용하면 모든 상태 변화는 그것과 연관된 핸들러 함수를 가질 것입니다. 이는 사용자 입력을 변경하거나 유효성 검사하는 것을 쉽게 만듭니다. 예를 들어 이름을 모두 대문자로 작성하고 싶다면 우리는 handleChange를 다음과 같이 작성할 수 있습니다.
 ```
@@ -115,7 +115,7 @@ class EssayForm extends React.Component {
 }
 ```
 
-this.state.value는 생성자에서 초깃값을 설정한다는 점에 유의하세요. 그러므로 text area는 그 안의 텍스트로 시작합니다.
+this.state.value는 생성자에서 초깃값을 설정한다는 점에 유의하세요. 그러므로 textarea는 그 안의 텍스트로 시작합니다.
 
 ---
 
@@ -205,7 +205,7 @@ class NameForm extends React.Component {
 }
 ```
 
-비제어 컴포넌트가 DOM에서 진실의 소스를 유지하기 때문에 비제어 컴포넌트를 사용하는게 리액트와 비-리액트 코드를 결합을 좀 더 쉽게 만들어 줍니다. 비제어 컴포넌트를 사용하면 더 적은 코드를 작성하게 된다는 장점도 있습니다.
+비제어 컴포넌트는 DOM에서 진실의 소스를 유지하기 때문에 리액트와 비-리액트 코드를 결합을 좀 더 쉽게 만들어 줍니다. 비제어 컴포넌트를 사용하면 코드를 더 적게 작성합니다.
 
 언제 제어 혹은 비제어 컴포넌트를 사용해야 하는지 아직 명확하지 않다면 다음의 기사가 도움이 될 것입니다.
 원문을 읽어보려면 https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/
@@ -325,8 +325,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "",
-      name: ""
+      value: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -339,8 +338,8 @@ class App extends React.Component {
   }
 
   handleSubmit(e) {
-    alert(this.state.value);
     e.preventDefault();
+    alert(this.state.value);
   }
 
   render() {
@@ -366,8 +365,64 @@ class App extends React.Component {
 export default App;
 ```
 
-#### radio
+#### checkbox
 
+
+#### radio
+```
+import React from "react";
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sex: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({ sex: e.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    alert("A name was submitted: " + this.state.sex);
+  }
+
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Male:
+            <input
+              type="radio"
+              value="male"
+              checked={this.state.sex === "male"}
+              onChange={this.handleChange}
+            />
+          </label>
+          <label>
+            Female:
+            <input
+              type="radio"
+              value="female"
+              checked={this.state.sex === "female"}
+              onChange={this.handleChange}
+            />
+          </label>
+
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
 
 
 
