@@ -80,10 +80,59 @@ class Calculator extends React.Component {
 
 
 ## Writing Conversion Functions
-우리는 
-우리는 
+우리는 섭씨 온도를 화씨 온도로 바꾸고 화씨 온도를 섭씨 온도로 바꾸는 2개의 함수를 작성할 것입니다.
+```
+function toCelsius(fahrenheit) {
+  return (fahrenheit - 32) * 5 / 9;
+}
+
+function toFahrenheit(celsius) {
+  return (celsius * 9 / 5) + 32;
+}
+```
+
+이 두 개의 함수는 숫자를 변환합니다. 우리는 인수로 문자열 temperature와 변환 함수를 가져와 문자열로 반환하는 다른 함수를 작성할 것입니다. 우리는 그 함수를 다른 입력값을 기반으로 입력값을 계산하기 위해 사용할 것입니다.
+
+그 함수는 유효하지 않은 온도에 빈 문자열을 반환하며 소수점 이하 세번째 자리 수를 결과로 반환합니다.
+```
+function tryConvert(temperature, convert) {
+  const input = parseFloat(temperature);
+  if (Number.isNaN(input)) {
+    return '';
+  }
+  const output = convert(input);
+  const rounded = Math.round(output * 1000) / 1000;
+  return rounded.toString();
+}
+```
+
+예를 들면 tryConvert('abc', toCelsius)는 빈 문자열을 반환하고, tryConvert('10.22', toFahrenheit)는 '50.396'을 반환합니다.
 
 
+## Lifting State Up
+현재 두 TemperatureInput 컴포넌트는 로컬 상태에서 독립적으로 그 값을 유지합니다.
+```
+class TemperatureInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {temperature: ''};
+  }
+
+  handleChange(e) {
+    this.setState({temperature: e.target.value});
+  }
+
+  render() {
+    const temperature = this.state.temperature;
+    // ...  
+```
+
+그러나 우리는 이 두 개의 input이 서로 동기화되길 원합니다. 우리가 섭씨 input을 업데이터했을 때 화씨 input은 변환된 온도롤 반영하거나 반대여야 합니다.
+
+리액트에서 공유 상태는 그것을 필요로 하는 컴포넌트들의 가장 가까운 공통 조상으로 올라감에 의해 달성됩니다. 우리는 이것을 "상태 끌어올리기"라고 합니다. 우리는 TemperatureInput에서 내부 상태를 제거한 대신에 Calculator로 이동시킬 것입니다.
+
+Calculator가 공유 상태를 갖게 되면 그것은 두 개의 input에서 현재 온도에 대한 "진실의 근원"이 됩니다.
 
 
 
