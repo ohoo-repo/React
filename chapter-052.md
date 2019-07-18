@@ -28,4 +28,64 @@ function Example() {
 }
 ```
 
-useState는 Hook입니다. 우리는 함수형 컴포넌트에 내부 상태를 추가하기 위해 useState를 호출합니다. 이 상태(state)는 컴포넌트가 다시 렌더링되어도 유지됩니다. useState은 현재의 상태 값과 그것을 업데이트 하는 함수를 반환합니다.
+useState는 Hook입니다. 우리는 함수형 컴포넌트에 내부 상태를 추가하기 위해 useState를 호출합니다. 이 상태(state)는 컴포넌트가 다시 렌더링되어도 유지됩니다. useState은 현재 상태의 값과 그것을 업데이트 하는 함수를 하나의 쌍으로 반환합니다. 여러분은 이 함수를 이벤트 핸들러 혹은 다른 곳에서 호출할 수 있습니다. 그것은 기존의 상태와 새로운 상태를 합치지 않는다는 점을 제외하고는 class의 this.setState과 비슷합니다.
+
+useState의 유일한 인수는 초기 상태입니다. counter는 0부터 시작하기 때문에 위의 예시에서 초기 상태는 0입니다. this.state와 다르게 여기에서 상태는 객체일 필요가 없습니다. 필요하다면 객체를 사용해도 됩니다. 초기 상태 인수는 첫 번째 렌더링에서만 사용됩니다.
+
+
+#### 여러 상태 변수 선언하기
+여러분은 하나의 컴포넌트에서 한 번 이상 State Hook을 사용할 수 있습니다.
+```
+function ExampleWithManyStates() {
+  // Declare multiple state variables!
+  const [age, setAge] = useState(42);
+  const [fruit, setFruit] = useState('banana');
+  const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
+  // ...
+}
+```
+
+#### 근데 Hook은 무엇인가요?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
