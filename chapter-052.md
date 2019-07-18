@@ -34,7 +34,7 @@ useState의 유일한 인수는 초기 상태입니다. counter는 0부터 시�
 
 
 #### 여러 상태 변수 선언하기
-여러분은 하나의 컴포넌트에서 한 번 이상 State Hook을 사용할 수 있습니다.
+여러분은 하나의 컴포넌트에서 여러 개의 State Hook을 사용할 수 있습니다.
 ```
 function ExampleWithManyStates() {
   // Declare multiple state variables!
@@ -45,11 +45,22 @@ function ExampleWithManyStates() {
 }
 ```
 
+배열 비구조화 구문은 useState을 호출하여 선언한 상태 변수에 다른 이름들을 제공합니다. 이 이름들은 useState API의 일부가 아닙니다. 대신 리액트는 여러분이 useState을 여러 번 호출하면 렌더링될 때마다 동일한 순서로 그것을 호출합니다. 왜 이렇게 동작하는지 언제 이것이 유용한지에 대해 나중에 알아보겠습니다.
+
+
 #### 근데 Hook은 무엇인가요?
 
 
 
 
+-----
+
+* 내장 Hook
+  * useState
+  * useEffect
+  * useContext
+  * useReducer
+* 커스텀 Hook
 
 
 
