@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>가상DOM과 엘리먼트</title>
   <link rel="stylesheet" href="https://stackedit.io/style.css" />
-<script src="/js/mermaid.js"></script>
- <script>
+  <script src="/js/mermaid.js"></script>
+  <script>
     var config = {
       startOnLoad:true,
       theme: 'neutral',
