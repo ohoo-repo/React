@@ -13,15 +13,16 @@
     <div class="stackedit__toc">
       
 <ul>
-<li><a href="#ui를-만들기-위한">UI를 만들기 위한</a>
+<li><a href="#리액트란-무엇인가">리액트란 무엇인가?</a>
 <ul>
+<li><a href="#ui를-만들기-위한">UI를 만들기 위한</a></li>
 <li><a href="#자바스크립트-라이브러리">자바스크립트 라이브러리</a></li>
+</ul>
+</li>
 <li><a href="#리액트를-배우기-전에">리액트를 배우기 전에</a></li>
 <li><a href="#리액트-사용하기">리액트 사용하기</a></li>
 <li><a href="#리액트-사용하기-1">리액트 사용하기</a></li>
 <li><a href="#앞으로-배울-개념">앞으로 배울 개념</a></li>
-</ul>
-</li>
 </ul>
 
     </div>
@@ -37,7 +38,8 @@
 <li>UI를 만들기 위한</li>
 <li>자바스크립트 라이브러리</li>
 </ul>
-<h1 id="ui를-만들기-위한">UI를 만들기 위한</h1>
+<h1 id="리액트란-무엇인가">리액트란 무엇인가?</h1>
+<h2 id="ui를-만들기-위한">UI를 만들기 위한</h2>
 <pre><code>UI = user interface = 사용자 인터페이스
 </code></pre>
 <p>우리가 사용하는 웹사이트들은 개발자가 미리 작성해 서버에 저장해 놓은 코드들 입니다. 사용자가 www로 시작하는 주소를 입력해 서버에 정보를 요청하면 서버는 저장된 코드를 브라우저에 보내주고 브라우저는 이 코드를 화면에 그려줍니다. 이 때 화면에 출력된 웹페이지를 UI라고 하며 UI는 사용자 입력에 따라 변하기도 합니다.</p>
@@ -47,7 +49,7 @@
 </code></pre>
 <p>자바스크립트 라이브러리란 자바스크립트를 조금 더 쉽게 사용할 수 있도록 도와주는 도구를 말합니다. 우리는 이 도구의 내부가 어떻게 생겼는지, 어떤 원리로 작동 되는지에 대해서 알 필요가 없으며 정확한 사용 방법만 익히면 됩니다.</p>
 <p>라이브러리이기 때문에 프레임워크보다는 가볍게 사용할 수 있지만 위에서 언급했듯이 뷰와 관련된 코드를 작성하는데 사용되는 라이브러리이기 때문에 추가적인 기능들을 구현하기 위해서 다른 도구들을 함께 사용해야 합니다.</p>
-<h2 id="리액트를-배우기-전에">리액트를 배우기 전에</h2>
+<h1 id="리액트를-배우기-전에">리액트를 배우기 전에</h1>
 <p>리액트를 배우기 전에 다음과 같은 내용에 대해 알고 있어야 합니다.</p>
 <ul>
 <li>HTML</li>
@@ -55,11 +57,11 @@
 <li>JavaScript(ES6)</li>
 <li>Node.js</li>
 </ul>
-<h2 id="리액트-사용하기">리액트 사용하기</h2>
+<h1 id="리액트-사용하기">리액트 사용하기</h1>
 <p>All your files and folders are presented as a tree in the file explorer. You can switch from one to another by clicking a file in the tree.</p>
-<h2 id="리액트-사용하기-1">리액트 사용하기</h2>
+<h1 id="리액트-사용하기-1">리액트 사용하기</h1>
 <p>You can rename the current file by clicking the file name in the navigation bar or by clicking the <strong>Rename</strong> button in the file explorer.</p>
-<h2 id="앞으로-배울-개념">앞으로 배울 개념</h2>
+<h1 id="앞으로-배울-개념">앞으로 배울 개념</h1>
 <p>You can delete the current file by clicking the <strong>Remove</strong> button in the file explorer. The file will be moved into the <strong>Trash</strong> folder and automatically deleted after 7 days of inactivity.</p>
 
     </div>
