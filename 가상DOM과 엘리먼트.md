@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>가상DOM과 엘리먼트</title>
   <link rel="stylesheet" href="https://stackedit.io/style.css" />
+  <script src="https://unpkg.com/browse/mermaid@8.2.3/"></script>
 </head>
 
 <body class="stackedit">
