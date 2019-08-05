@@ -1,3 +1,10 @@
+---
+title: 가상DOM과 엘리먼트
+seoTitle: 가상DOM과 엘리먼트 | React | ohoo
+seoDescription: description for search engines
+isFree: true
+---
+
 <!DOCTYPE html>
 <html>
 
